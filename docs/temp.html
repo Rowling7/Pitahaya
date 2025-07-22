@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta name="viewport" charset="UTF-8" content=" viewport-fit=cover">
+  <link rel="icon" href="static/ico/favicon.ico" type="image/x-icon">
+  <title>Pitahaya Guide</title>
+  <link rel="stylesheet" href="static/css/styles.css" /> <!--全局样式-->
+  <link rel="stylesheet" href="static/css/BGeffects.css" id="bgeffects-css" /> <!--背景特效-->
+  <link rel="stylesheet" href="static/css/animationEffects.css" /> <!--动画效果-->
+  <script src="static/js/widget.js"></script> <!--组件-->
+  <script src="static/js/Settings.js" defer></script> <!--设置控制-->
+  <script src="static/js/LoadSearchData.js" defer></script> <!--主要部分：数据载入-->
+  <script src="static/js/HeaderControler.js" defer></script> <!--头部栏部分控制-->
+  <script src="static/js/DAWS.js" defer></script> <!--引擎选择和快捷方式动态响应-->
+  <script src="static/js/BGeffects.js" id="bgeffects-js" defer></script>
+  <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+  <script src="static/js/sortable.min.js"></script>
+</head>
+
+<body id="bodyId">
+  <div class="canvas-container">
+    <canvas id="particleCanvas"></canvas>
+  </div>
+  <!--抬头-->
+  <div class="header-container" id="headerContainer">
+    <div>
+      <a href="https://www.msn.cn/zh-cn/weather/forecast" target="_blank"><img id="image4Gif"
+          src="static/ico/favicon.ico" alt="gifORpng" /></a>
+    </div>
+    <h1 class="site-title">
+      <a class="siteFornt" id="siteTitle">Pitahaya Guide</a>
+    </h1><!--YsongCao's -->
+    <div class="cntr" id="cntrSearch">
+      <div class="cntr-innr">
+        <label class="search" for="inpt_search">
+          <input id="inpt_search" type="text" />
+        </label>
+      </div>
+    </div>
+    <a class="changePage" id="changePage" href="index2.html">
+      <img class="changePageIco" src="static/ico/change.png" alt="搜索图标" />
+    </a>
+    <a class="changeBG" id="changeBG" href="changeBG.html" ">
+      <img class=" changeBGIco" src="static/ico/changeBG.png" alt="切换背景图" />
+    </a>
+    <a class="light-mod" id="lightMod"">
+      <img class=" lightModIco" src="static/ico/lightMod.png" alt="简洁模式" />
+    </a>
+    <!-- 暗黑切换按钮 (已被设置按钮替代)-->
+    <!--<button class="theme-toggle" id="themeToggle" aria-pressed="false" hidden>暗黑</button>-->
+    <!-- 设置按钮 -->
+    <div class="settings-container">
+      <button class="settings-btn" id="settingsBtn">
+        <img class="steeingImg" src="static/ico/setting.png" alt="设置">
+      </button>
+      <div class="dropdown-menu" id="settingsDropdown">
+        <!-- 动态生成的下拉选项 -->
+      </div>
+    </div>
+  </div>
+
+  <!--搜索框-->
+  <div class="search-container" id="search-container">
+    <form action method="get" class="searchForm" id="searchForm">
+      <div class="custom-select">
+        <select class="engine" name="engine" id="engineSelect" title="engine">
+          <option value="https://www.bing.com/search?q=">Bing</option>
+          <option value="https://www.baidu.com/s?wd=">Baidu</option>
+          <option value="https://xiaoyi.huawei.com/?q=">小艺</option>
+          <option value="https://www.sogou.com/web?ie={inputEncoding}&query=">搜狗</option>
+          <option value="https://www.so.com/s?ie={inputEncoding}&q=">360</option>
+          <option value="http://www.zhihu.com/search?type=content&q=">知乎</option>
+          <option value="https://s.weibo.com/weibo?q=">微博</option>
+          <option value="https://www.xiaohongshu.com/search_result?keyword=">小红书</option>
+          <option value="https://www.douban.com/search?source=suggest&q=">豆瓣</option>
+          <option value="https://www.douyin.com/root/search/">抖音</option>
+          <option value="https://search.bilibili.com/video?keyword=">B站</option>
+        </select>
+        <div class="custom-select-trigger">
+          <div class="triggerName">Bing</div>
+        </div>
+        <div class="custom-options">
+          <div class="option" data-value="https://www.bing.com/search?q=">Bing</div>
+          <div class="option" data-value="https://www.baidu.com/s?wd=">Baidu</div>
+          <div class="option" data-value="https://xiaoyi.huawei.com/?q=">小艺</div>
+          <div class="option" data-value="https://www.sogou.com/web?ie={inputEncoding}&query=">搜狗</div>
+          <div class="option" data-value="https://www.so.com/s?ie={inputEncoding}&q=">360</div>
+          <div class="option" data-value="http://www.zhihu.com/search?type=content&q=">知乎</div>
+          <div class="option" data-value="https://s.weibo.com/weibo?q=">微博</div>
+          <div class="option" data-value="https://www.xiaohongshu.com/search_result?keyword=">小红书</div>
+          <div class="option" data-value="https://www.douban.com/search?source=suggest&q=">豆瓣</div>
+          <div class="option" data-value="https://www.douyin.com/root/search/">抖音</div>
+          <div class="option" data-value="https://search.bilibili.com/video?keyword=">BiliBili</div>
+        </div>
+      </div>
+      <!--<div><a>∨</a></div>-->
+      <input type="text" name="query" placeholder="Type Something To Search ......" autofocus>
+    </form>
+  </div>
+
+  <!-- 视图切换按钮 (放在顶部) -->
+  <div class="view-switcher" id="viewSwitcher">
+    <a id="widgetViewBtn" class="view-btn" role="button">
+      <img src="static/ico/widget.png" class="view-icon">组件</a>
+    <span class="divider"></span>
+    <a id="linkViewBtn" class="view-btn active" role="button">
+      <img src="static/ico/link.png" class="view-icon">链接</a>
+  </div>
+
+  <div class="container">
+    <!-- 组件视图 (首页) -->
+    <div id="widget-container" class="widget-view ">
+      <!-- 时钟 -->
+      <div class="widget-grid" id="widgetGgridClock">
+        <div id="clockContainer"></div>
+      </div>
+      <!-- 日历 -->
+      <div class="widget-grid" id="widgetGgridCalendar">
+        <div id="calendarContainer"></div>
+      </div>
+      <!-- 天气 -->
+      <div class="widget-grid" id="widgetGgridWeather">
+        <div id="weatherContainer"></div>
+      </div>
+      <!-- 社畜倒计时 -->
+      <div class="widget-grid" id="widgetGgridWorkTime">
+        <div id="workTimeContainer"></div>
+      </div>
+      <!-- 收藏 -->
+      <div class="widget-grid" id="widgetGgridShortcut">
+        <div id="shortcutContainer"></div>
+      </div>
+      <!-- 随机一言-->
+      <div class="widget-grid per-double-width" id="widgetGgridHitokoto">
+        <div id="customHitokotoContainer"></div>
+      </div>
+      <!-- 微博热搜-->
+      <div class="widget-grid per-double-width" id="widgetGgridWeiboHot">
+        <div id="WeiboHotContainer"></div>
+      </div>
+    </div>
+
+
+    <!-- 链接视图 (原内容) -->
+    <div id="link-container-view" class="link-view ">
+      <div class="controls" hidden>
+        <label>每行显示数量：</label>
+        <input type="number" id="columnCount" min="1" max="14" value="4" />
+      </div>
+      <div id="content-container" class="grid-container"></div>
+    </div>
+  </div>
+
+  <!--底栏部分-->
+  <div class="bottom-container" id="bottomContainer">
+    <div class="tabs-container" id="tabsContainer"></div>
+  </div>
+
+  <script>
+    // 统一初始化函数
+    function initWidget(WidgetClass, options) {
+      try {
+        if (!WidgetClass) {
+          console.error(`Widget class ${WidgetClass?.name || 'unknown'} is not defined`);
+          return;
+        }
+        if (!document.getElementById(options.containerId)) {
+          console.error(`Container element #${options.containerId} not found`);
+          return;
+        }
+        new WidgetClass(options);
+      } catch (e) {
+        console.error(`Failed to initialize ${WidgetClass?.name || 'unknown'} widget:`, e);
+      }
+    }
+
+    // 初始化所有组件
+    initWidget(WeatherWidget, { containerId: 'weatherContainer' });
+    initWidget(ShortcutWidget, { containerId: 'shortcutContainer' });
+    initWidget(CalendarWidget, { containerId: 'calendarContainer' });
+    initWidget(ClockWidget, { containerId: 'clockContainer', use24HourFormat: true });
+    initWidget(WorkTimeWidget, { containerId: 'workTimeContainer' });
+    initWidget(HitokotoWidget, { containerId: 'customHitokotoContainer' });
+    initWidget(WeiboHotWidget, { containerId: 'WeiboHotContainer' });
+  </script>
+</body>
+<!-- 版本信息 -->
+<div class="version-info">v3.0.0-20250715</div>
+
+</html>

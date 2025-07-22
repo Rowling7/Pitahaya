@@ -1,0 +1,1019 @@
+/* 基础字体定义 */
+@font-face {
+    font-family: 'CustomSans';
+    src: url('../fonts/NotoSansSC-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomSans';
+    src: url('../fonts/NotoSansSC-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-display: swap;
+}
+
+/* 基础组件样式 */
+.widget {
+    border-radius: 22px;
+    padding: 11px;
+    background: var(--widget-bg, rgba(255, 255, 255, 0.1));
+    color: var(--text-color, #333);
+    font-family: 'CustomSans', sans-serif;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--box-solid-color);
+    box-sizing: border-box;
+    overflow: hidden;
+    min-width: 220px;
+    min-height: 220px;
+}
+
+/* 时钟组件特定样式 */
+.clock-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.time-display.compact-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.hm-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 60px;
+    line-height: 1;
+}
+
+.time-colon {
+    animation: blink 1s infinite;
+    color: var(--highlight-color, #9c27b0);
+    padding: 0 5px;
+}
+
+.seconds {
+    font-size: 36px;
+}
+
+.highlight-seven {
+    color: var(--highlight-seven-color, #9c27b0) !important;
+}
+
+.format-toggle {
+    background-color: var(--widget-blur-color);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.format-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 点击涟漪效果 */
+.format-toggle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.format-toggle:active::after {
+    animation: ripple 0.3s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0) translate(-50%, -50%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(20, 20) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.format-toggle.active {
+    background: var(--highlight-color, #9c27b0);
+    color: white;
+}
+
+.format-toggle.active::before {
+    content: "✓ ";
+}
+
+
+
+
+
+/* 工作倒计时组件特定样式 */
+
+#workTimeContainer {
+    padding: 10px !important;
+}
+
+.worktime-widget {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 工作倒计时样式 */
+.countdown-item {
+    margin: 8px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.countdown-label {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.countdown-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.salary-display {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.salary-label {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.salary-value {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff00ff77, var(--highlight-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.countdown-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.salary-row {
+    text-align: center;
+}
+
+.small-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.small-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 设置页面样式 */
+.settings-form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.settings-form.compact-form {
+    padding: 8px;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+}
+
+.settings-row {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-label {
+    width: 70px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: #555;
+}
+
+.settings-input {
+    flex: 1;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--widget-blur-color);
+    color: inherit;
+}
+
+.flip-button {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    background-color: var(--widget-blur-color);
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 10px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.flip-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.save-button {
+    padding: 6px;
+    border-radius: 4px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.settings-input.compact-input {
+    width: 100%;
+    padding: 4px 8px;
+    font-size: 12px;
+    height: 28px;
+}
+
+.save-button.compact-button {
+    margin-top: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    width: 100%;
+}
+
+/* 天气组件样式 */
+.weather-widget {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.weather-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30%;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.weather-temp {
+    font-size: xxx-large;
+    font-weight: bolder;
+    position: relative;
+}
+
+.weather-temp::after {
+    content: "°C";
+    font-size: 18px;
+    position: absolute;
+    top: 3px;
+    right: -20px;
+    opacity: 0.7;
+}
+
+.temperature-extremes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.weather-temp-max,
+.weather-temp-min {
+    opacity: 0.7;
+    position: relative;
+    padding-left: 14px;
+    margin: 1px 0;
+}
+
+.weather-temp-max::before {
+    content: "↑";
+    position: absolute;
+    left: 0;
+}
+
+.weather-temp-min::before {
+    content: "↓";
+    position: absolute;
+    left: 0;
+}
+
+.weather-img {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.weather-input {
+    display: flex;
+    gap: 6px;
+    height: 15%;
+}
+
+.weather-input input,
+.weather-input select,
+.weather-input button {
+    border: none;
+    border-radius: 6px;
+    padding: 5px 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    border: 1px solid rgba(3, 3, 3, 0.1);
+}
+
+.weather-input input {
+    flex: 1;
+    min-width: 0;
+}
+
+.weather-input select {
+    width: 70px;
+}
+
+.weather-input button {
+    background-color: var(--widget-blur-color);
+    font-weight: 500;
+    cursor: pointer;
+    width: 60px;
+}
+
+.city-select option {
+    background-color: var(--widget-bg);
+    color: var(--text-color);
+}
+
+.weather-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    height: 15%;
+}
+
+.weather-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weather-site,
+.weather-result {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50%;
+}
+
+.weather-detail {
+    background-color: var(--widget-blur-color);
+    border-radius: 10px;
+    margin: 0px;
+    height: 30%;
+    perspective: 1000px;
+    position: relative;
+}
+
+.weather-detail::after {
+    content: "悬停查看更多";
+    position: absolute;
+    bottom: -19px;
+    right: 0px;
+    font-size: 8px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.weather-detail:hover::after {
+    opacity: 0;
+}
+
+.weather-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-face.front {
+    padding: 4px;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.weather-detail:hover .weather-card {
+    transform: rotateY(180deg);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    font-size: 11px;
+    align-items: center;
+}
+
+.detail-label {
+    opacity: 0.7;
+}
+
+.detail-value {
+    font-weight: 500;
+}
+
+.feels-like {
+    font-weight: bolder;
+}
+
+/* 快捷方式组件样式 */
+.shortcut-widget {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2列 */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2行 */
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.shortcut-grid {
+    display: contents;
+}
+
+.widget-icon.shortcut-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 16px;
+}
+
+.widget-icon.shortcut-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.widget-icon.shortcut-icon img {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    border-radius: 20px;
+}
+
+
+/* 热搜组件样式 */
+.hotpoint-widget {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#hotPointWidget {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.switch-btn,
+.refresh-btn {
+    background-color: var(--widget-blur-color);
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.switch-btn {
+    margin-left: 8px;
+}
+
+.switch-btn:hover,
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.hot-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    background-color: transparent;
+    -ms-overflow-style: none;
+}
+
+.hot-list::-webkit-scrollbar {
+    display: none;
+}
+
+.hot-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    height: 32px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+    /* 确保初始状态透明 */
+    position: relative;
+    /* 为子元素定位提供上下文 */
+}
+
+.hot-item:hover {
+    transform: translateX(5px);
+    background-color: var(--widget-blur-color);
+    /* 添加背景色 */
+}
+
+/* 如果需要更明显的效果 */
+.hot-item:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--widget-blur-color);
+    z-index: -1;
+    /* 确保背景在内容下方 */
+    border-radius: 6px;
+}
+
+.hot-rank {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 12px;
+    position: relative;
+}
+
+.hot-rank::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.baidu-hot .hot-rank {
+    background-color: #ff4040;
+}
+
+.weibo-hot .hot-rank {
+    background-color: #e53935;
+}
+
+.hot-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.hot-title {
+    font-size: 13px;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hot-metric {
+    font-size: 11px;
+    color: #d32f2f;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 1px 4px;
+    width: fit-content;
+}
+
+/* 滚动条样式 */
+.hot-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.hot-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.hot-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.hot-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* 错误状态样式 */
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.error-message {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.error-details {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 12px;
+}
+
+.retry-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 一言组件样式 */
+.yiyan-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#yiyanWidget {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#yiyanText {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 10px 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    margin: 0px;
+}
+
+#yiyanText::-webkit-scrollbar {
+    display: none;
+}
+
+#yiyanText:hover {
+    opacity: 0.8;
+}
+
+.type-switcher {
+    background-color: var(--widget-blur-color);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+
+}
+
+.type-switcher:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.type-switcher:active {
+    transform: scale(0.98);
+}
+
+
+
+
+/* 拖拽排序相关样式 */
+.sortable-ghost {
+    opacity: 0.5;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.widget {
+    cursor: move;
+    transition: transform 0.3s ease;
+}
+
+
+/* 日历组件样式 */
+.calendar-widget {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+}
+
+.calendar-nav {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.calendar-nav:hover {
+    color: var(--highlight-color);
+}
+
+.calendar-today {
+    background-color: var(--widget-blur-color);
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.calendar-today:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.7rem;
+    background-color: var(--widget-blur-color);
+    border-radius: 4px;
+}
+
+.calendar-weekdays span {
+    padding: 1px 0;
+}
+
+.calendar-days {
+    margin-left: 6px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+
+    height: 20px;
+    width: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.calendar-day:hover {
+    background: var(--hover-bg);
+}
+
+.calendar-day.today {
+    font-weight: bold;
+    color: var(--highlight-color);
+    border: 2px solid var(--highlight-color);
+}
+
+.calendar-day.selected {
+    background: var(--highlight-color);
+    color: var(--button-text) !important;
+    font-weight: bold;
+}
+
+.calendar-day.other-month {
+    opacity: 0.5;
+}
+
+.calendar-day.other-month-holiday {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+.weekend {
+    color: var(--weekend-color, #f44336);
+}
+
+.calendar-day.weekend {
+    color: var(--weekend-color, #f44336);
+}
+
+.calendar-day.public-holiday {
+    color: var(--holiday-color, #f44336);
+    font-weight: bold;
+}
+
+.calendar-day.transfer-workday {
+    color: var(--text-color);
+    font-weight: bold;
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+}
+
+
+
+/* 共享动画效果 */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes breathing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.3);
+    }
+}
+
+.breathing-effect {
+    animation: breathing 1.5s ease-in-out infinite;
+    border: 1px solid red !important;
+    box-shadow: 0 8px 10px rgba(255, 0, 0, 0.3) !important;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="auto">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="static/ico/favicon.ico" type="image/x-icon">
+    <title>Pitahaya`s</title>
+
+    <!-- Widget 样式 -->
+    <link rel="stylesheet" href="static/widgets/widget.css">
+
+    <!-- Bootstrap5 -->
+    <link rel="stylesheet" href="static/css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
+    <script src="static/js/bootstrap.bundle.js" defer></script>
+
+    <!-- 项目样式 -->
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <link rel="stylesheet" href="static/css/searchStyles.css" />
+    <script src="static/js/main.js" defer></script>
+    <script src="static/widgets/widgets.js"></script>
+
+    <!-- 组件拖拽 -->
+    <script src="static/js/sortable.min.js"></script>
+
+    <!-- 背景特效 -->
+    <link rel="stylesheet" href="static/css/BGeffects.css" />
+    <!--<script src="static/js/BGeffects.js" id="bgeffects-js" defer></script>-->
+
+    <!-- 模态框 -->
+    <link rel="stylesheet" href="static/common/modal.css">
+    <script src="static/common/modal.js" defer></script>
+
+    <!-- eraserMod -->
+    <link rel="stylesheet" href="static/css/animationEffects.css">
+    <script src="static/js/eraserMod.js" defer></script>
+</head>
+
+<body id="bodyId">
+    <div class="canvas-container">
+        <canvas id="particleCanvas"></canvas>
+    </div>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Pitahaya`s</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="切换导航">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbarNavLeft" id="navbarNav"><!-- 修改了id原id为navbarNav -->
+                <ul class="navbar-nav">
+                    <li class="nav-item" li-index="-1">
+                        <a class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item" li-index="0">
+                        <a class="nav-link">娱乐</a>
+                    </li>
+                    <li class="nav-item" li-index="1">
+                        <a class="nav-link">网络</a>
+                    </li>
+                    <li class="nav-item" li-index="2">
+                        <a class="nav-link">工具</a>
+                    </li>
+                    <li class="nav-item" li-index="3">
+                        <a class="nav-link">软件</a>
+                    </li>
+                    <li class="nav-item" li-index="4">
+                        <a class="nav-link">临时</a>
+                    </li>
+                    <li class="nav-item" li-index="5">
+                        <a class="nav-link">Trash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="separator">|</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse navbarNavRight" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item-right" id="searchIcon">
+                        <i class="bi bi-search-heart nav-link-icon"></i><!--搜索图标-->
+                    </li>
+                    <li class="nav-item-right" id="secretWeb" onclick="window.location.href='index2.html'">
+                        <i class="bi bi-back nav-link-icon"></i><!--切换网页-->
+                    </li>
+                    <li class="nav-item-right" id="changeBG" onclick="window.location.href='changeBG.html'">
+                        <i class="bi bi-card-image nav-link-icon"></i><!--切换壁纸-->
+                    </li>
+                    <li class="nav-item-right" id="eraserMod">
+                        <i class="bi bi-eraser-fill nav-link-icon"></i><!--简洁模式-->
+                    </li>
+                    <li class="nav-item-right">
+                        <i class="bi bi-moon-fill nav-link-icon" id="darkModeToggle"></i><!--暗黑模式-->
+                    </li>
+                    <li class="nav-item-right">
+                        <i class="bi bi-gear-wide-connected nav-link-icon" id="settings"></i><!--设置-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 搜索框 -->
+    <div class="search-container">
+        <form class="search-form" id="searchForm">
+            <div class="search-select">
+                <select class="engine-select" id="engineSelect" title="搜索引擎">
+                    <option value="https://www.bing.com/search?q=" selected>Bing</option>
+                    <option value="https://www.baidu.com/s?wd=">Baidu</option>
+                    <option value="https://xiaoyi.huawei.com/?q=">小艺</option>
+                    <option value="https://www.sogou.com/web?ie={inputEncoding}&query=">搜狗</option>
+                    <option value="https://www.so.com/s?ie={inputEncoding}&q=">360</option>
+                    <option value="http://www.zhihu.com/search?type=content&q=">知乎</option>
+                    <option value="https://s.weibo.com/weibo?q=">微博</option>
+                    <option value="https://www.xiaohongshu.com/search_result?keyword=">小红书</option>
+                    <option value="https://www.douban.com/search?source=suggest&q=">豆瓣</option>
+                    <option value="https://www.douyin.com/root/search/">抖音</option>
+                    <option value="https://search.bilibili.com/video?keyword=">B站</option>
+                </select>
+                <div class="select-icon"><i class="bi bi-caret-down-fill"></i></div>
+            </div>
+            <input type="text" name="query" placeholder="Type Something To Search ......" autofocus>
+            <button type="submit" class="search-btn"><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+
+    <div class="mainContainer">
+        <section class="snap-section home-section" data-index="-1">
+            <div class="weidgetContainer"></div>
+            <!-- 动态插入的 组件 将放在这里 -->
+        </section>
+        <!-- 动态插入的 图标 将放在这里 -->
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', window.initWidgets);
+</script>
+
+<div class="version-info">v4.1.0-20250722</div>
+
+</html>

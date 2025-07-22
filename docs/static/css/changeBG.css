@@ -1,0 +1,33 @@
+:root {
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, .125);
+}
+
+.dark-mode {
+    --text-color: #e0e0e0;
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --border-color: #404040;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.card-title {
+    color: var(--text-color) !important;
+}
+
+.card-text {
+    color: color-mix(in srgb, var(--text-color) 70%, transparent) !important;
+}

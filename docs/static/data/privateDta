@@ -1,0 +1,15 @@
+            {
+                "name": "XJJ",
+                "target": "https://xiaojiejie.me/",
+                "bgImage": "static/ico/XJJ.png"
+            },
+            {
+                "name": "BJX",
+                "target": "https://fuliba2024.net/anhao.html",
+                "bgImage": "static/ico/anhao.png"
+            },
+            {
+                "name": "FLB",
+                "target": "https://fuliba2024.net/",
+                "bgImage": "static/ico/fuliba2024.png"
+            },

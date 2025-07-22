@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态卡片展示</title>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/js/bootstrap.bundle.js" defer></script>
+    <link rel="stylesheet" href="static/css/changeBG.css">
+    <script src="static/js/changeBG.js" defer></script>
+</head>
+
+<body>
+    <div class="container py-5">
+        <!-- 暗黑模切换按钮 -->
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary mb-4">
+            <i class="bi bi-moon-stars">暗黑模式</i>
+        </button>
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary mb-4">
+            <a href="\" target="_blank">返回</a>
+        </button>
+
+
+        <!-- 卡片容器 -->
+        <div class="row g-4" data-card-container></div>
+        <div class="d-flex justify-content-center my-4" data-pagination></div>
+    </div>
+</body>
+
+</html>

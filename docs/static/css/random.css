@@ -1,0 +1,80 @@
+body {
+    padding-top: 60px;
+}
+
+.nav-link {
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item+.nav-item {
+    margin-left: 8px;
+}
+
+.navbar {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0d6efd;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* 新增卡片底部按钮样式 */
+.card-body {
+    position: relative;
+    /* 确保按钮定位相对于 card-body */
+    min-height: 100px;
+    /* 设置最小高度（根据内容调整） */
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 1rem;
+    /* 距离底部间距 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 水平居中 */
+    width: calc(100% - 2rem);
+    /* 宽度自适应（留出边距） */
+}
+
+video:focus,
+video:active {
+    outline: 2px solid #0d6efd;
+}
+
+/* 预览媒体样式 */
+.preview-media {
+    object-fit: contain;
+}
+
+/* 视频预览特定样式 */
+#previewVideo {
+    max-height: calc(90vh - 120px);
+    height: auto;
+    margin: 0 auto;
+    background-color: #000;
+}

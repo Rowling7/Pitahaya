@@ -1,0 +1,122 @@
+/* 当前内容离开动画 */
+@keyframes exitAnimation {
+  to {
+    transform: scale(0.6);
+    /* 缩小到60% */
+    opacity: 0;
+    /* 透明度渐隐 */
+    transform-origin: center;
+  }
+}
+
+/* 新内容进入动画 */
+@keyframes enterAnimation {
+  from {
+    transform: scale(1.6);
+    /* 从160%开始 */
+    opacity: 0;
+    /* 初始透明 */
+    transform-origin: center;
+  }
+
+  to {
+    transform: scale(1);
+    /* 缩放到正常大小 */
+    opacity: 1;
+    /* 完全显示 */
+    transform-origin: center;
+  }
+}
+
+
+/* 默认隐藏新内容 */
+.tab-content {
+  opacity: 0;
+  transform: scale(1.2);
+  /* 初始放大状态 */
+  transition: none;
+  /* 禁用过渡效果，避免干扰动画 */
+}
+
+/* 激活状态（用于最终显示） */
+.tab-content.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 离开动画类 */
+.exit {
+  animation: exitAnimation 0.3s cubic-bezier(0.4, 0, 1, 1) !important;
+  transform-origin: center;
+  /* 统一使用关键帧中的值 */
+}
+
+.enter {
+  animation: enterAnimation 0.5s forwards !important;
+  transform-origin: center;
+  /* 避免类与关键帧定义冲突 */
+}
+
+
+
+
+
+/* 标题文字 ---开始 ---*/
+.navbar-brand {
+  color: rgba(11, 14, 214, 1);
+  display: inline-block;
+  position: relative;
+  transition: color 0.4s linear;
+  text-decoration: none;
+}
+
+.navbar-brand:before,
+.navbar-brand:after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--navbar-brand-color);
+  position: absolute;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-brand:before {
+  top: -3px;
+  left: 0;
+}
+
+.navbar-brand:after {
+  bottom: -3px;
+  right: 0;
+}
+
+/*  鼠标悬停*/
+.navbar-brand:hover:before,
+.navbar-brand:hover:after {
+  width: 100%;
+}
+
+.navbar-brand:hover {
+  color: var(--navbar-brand-color);
+  text-shadow: 0 4px 10px rgba(238, 99, 150, 0.4);
+}
+
+/*  激活*/
+.navbar-brand.active:before,
+.navbar-brand.active:after {
+  width: 100% !important;
+}
+
+.navbar-brand.active {
+  color: var(--navbar-brand-color) !important;
+  text-shadow: 0 4px 10px rgba(238, 99, 150, 0.4) !important;
+}
+
+body.has-bg .navbar-brand {
+  color: rgba(0, 0, 0, 1);
+}
+
+body.has-bg .navbar-brand:hover {
+  color: var(--navbar-brand-color) !important;
+}
+/* 标题文字 ---结束---*/

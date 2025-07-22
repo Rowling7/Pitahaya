@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>卡片式布局</title>
+    <style>
+        /* 主容器样式 */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* 卡片链接样式 */
+        .card-link {
+            text-decoration: none;
+            color: #333;
+            width: 250px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 20px;
+        }
+
+        /* 悬停效果 */
+        .card-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 图片样式 */
+        .card-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        /* 文字样式 */
+        .card-text {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <a href="https://fuliba2024.net/anhao.html" class="card-link">
+            <img src="static/ico/loading0_compressed.gif" alt="图标" class="card-img">
+            <div class="card-text">BJX<br>----------</div>
+        </a>
+
+        <a href="https://fuliba2024.net/" class="card-link">
+            <img src="static/ico/fuliba2024.png" alt="图标" class="card-img">
+            <div class="card-text">FLB<br>----------</div>
+        </a> <a href="https://d4.xx01.my/" class="card-link">
+            <img src="static/ico/loading0_compressed.gif" alt="图标" class="card-img">
+            <div class="card-text">IMNv<br>----------</div>
+        </a>
+        <a href="https://www.ik009.top/" class="card-link">
+            <img src="static/ico/loading0_compressed.gif" alt="图标" class="card-img">
+            <div class="card-text">IMNv2<br>----------</div>
+        </a>
+        <a href="https://mixmico.zcool.com.cn/u/13757626?lng=zh" class="card-link">
+            <img src="static/ico/loading0_compressed.gif" alt="图标" class="card-img">
+            <div class="card-text">IMNv2<br>----------</div>
+        </a>
+    </div>
+</body>
+
+</html>

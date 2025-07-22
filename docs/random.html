@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航示例</title>
+
+    <link rel="stylesheet" href="static/css/bootstrap-icons.min.css">
+
+    <!-- ZIP 打包所需依赖（顺序很重要） -->
+    <script src="static/js/FileSaver.min.js" defer></script>
+    <script src="static/js/jszip.min.js" defer></script>
+
+    <!-- Bootstrap 和项目资源 -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/js/bootstrap.bundle.js" defer></script>
+    <link rel="stylesheet" href="static/css/random.css">
+    <script src="static/js/random.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container-fluid">
+            <!-- 品牌/返回按钮 -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-arrow-left-circle me-1"></i> 返回
+            </a>
+
+            <!-- 汉堡菜单按钮 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 导航链接容器 -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a id="picHsLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicHS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="picBsLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicBS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="picMnLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicMN</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="picMN4PCLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicMN4PC</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="picMN4PhoneLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicMN4Phone</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="picWallpaperLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>PicWallpaper</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="vidMNLink" class="nav-link d-flex align-items-center" href="#">
+                            <i class="bi bi-shuffle me-1"></i> <span>VidMN</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- 批量下载按钮容器 -->
+                <div class="d-flex gap-2 py-2 mt-2 mt-lg-0">
+                    <button id="batchDownloadPicBtn" class="btn btn-success btn-sm me-2">
+                        <i class="bi bi-download"></i> 批量下载图片
+                    </button>
+                    <button id="batchDownloadVidBtn" class="btn btn-success btn-sm">
+                        <i class="bi bi-download"></i> 批量下载视频
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- 加载动画 -->
+    <div id="loadingSpinner" class="loader d-none"></div>
+
+    <!-- 图片展示区域 -->
+    <div class="container py-5" id="imageGallery">
+        <div class="row g-4" id="cardContainer"></div>
+    </div>
+
+    <!-- 图片/视频预览 Modal -->
+    <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-labelledby="imagePreviewModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imagePreviewModalLabel">媒体预览</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- 图片预览容器 -->
+                    <img id="previewImage" src="" class="img-fluid preview-media d-none" alt="图片预览">
+                    <!-- 视频预览容器 -->
+                    <video id="previewVideo" controls class="preview-media d-none w-100">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

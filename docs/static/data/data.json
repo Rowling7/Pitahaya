@@ -1,0 +1,890 @@
+[
+    {
+        "index": 0,
+        "id": "fun",
+        "name": "娱乐",
+        "children": [
+            {
+                "name": "哔哩哔哩",
+                "target": "http://www.bilibili.com/",
+                "bgImage": "static/ico/bilibili.png"
+            },
+            {
+                "name": "抖音",
+                "target": "https://www.douyin.com",
+                "bgImage": "static/ico/douyin.png"
+            },
+            {
+                "name": "低端影视",
+                "target": "https://ddys.one/",
+                "bgImage": "static/ico/ddys.png"
+            },
+            {
+                "name": "音范丝",
+                "target": "https://www.yinfans.me/",
+                "bgImage": "static/ico/yinfans.png"
+            },
+            {
+                "name": "知乎",
+                "target": "https://www.zhihu.com/",
+                "bgImage": "static/ico/zhihu.png"
+            },
+            {
+                "name": "豆瓣",
+                "target": "https://movie.douban.com/",
+                "bgImage": "static/ico/douban.png"
+            },
+            {
+                "name": "吾爱破解",
+                "target": "https://www.52pojie.cn",
+                "bgImage": "static/ico/52pojie.png"
+            },
+            {
+                "name": "新浪微博",
+                "target": "http://weibo.com/",
+                "bgImage": "static/ico/weibo.png"
+            },
+            {
+                "name": "一加ROM",
+                "target": "https://yun.daxiaamu.com",
+                "bgImage": "static/ico/1plusrom.png"
+            },
+            {
+                "name": "最右",
+                "target": "https://www.izuiyou.com/",
+                "bgImage": "static/ico/zuiyou.png"
+            },
+            {
+                "name": "lookmovie",
+                "target": "https://ww1.lookmovie.pn/",
+                "bgImage": "static/ico/lookmovie.png"
+            },
+            {
+                "name": "opensubtitles",
+                "target": "https://www.opensubtitles.org/",
+                "bgImage": "static/ico/opensubtitles.png"
+            },
+            {
+                "name": "奈飞影视",
+                "target": "https://www.netflixgc.com/",
+                "bgImage": "static/ico/netflixgc.png"
+            },
+            {
+                "name": "盘库吧",
+                "target": "https://panku8.com/",
+                "bgImage": "static/ico/pankuba.png"
+            },
+            {
+                "name": "Seedhub",
+                "target": "https://www.seedhub.cc/",
+                "bgImage": "static/ico/seedhub.png"
+            },
+            {
+                "name": "80s电影网",
+                "target": "https://y80s.net",
+                "bgImage": "static/ico/80s.png"
+            },
+            {
+                "name": "低端影视001",
+                "target": "https://ddys001.com/",
+                "bgImage": "static/ico/ddys001.png"
+            },
+            {
+                "name": "虎牙直播",
+                "target": "http://www.huya.com/",
+                "bgImage": "static/ico/huya.png"
+            },
+            {
+                "name": "斗鱼",
+                "target": "http://www.douyutv.com/",
+                "bgImage": "static/ico/douyutv.png"
+            },
+            {
+                "name": "Spotify",
+                "target": "https://open.spotify.com/browse",
+                "bgImage": "static/ico/Spotify.png"
+            },
+            {
+                "name": "Instagram",
+                "target": "https://www.instagram.com/",
+                "bgImage": "static/ico/instagram.png"
+            },
+            {
+                "name": "游戏下载",
+                "target": "https://koyso.com/",
+                "bgImage": "static/ico/koyso.png"
+            },
+            {
+                "name": "资源避难所",
+                "target": "https://www.flysheep6.com/",
+                "bgImage": "static/ico/flysheep6.png"
+            },
+            {
+                "name": "9dgames",
+                "target": "http://www.9dmsgame.net/",
+                "bgImage": "static/ico/9dgames.png"
+            },
+            {
+                "name": "CSGO",
+                "target": "http://www.csgo.com.cn",
+                "bgImage": "static/ico/CSGO.png"
+            },
+            {
+                "name": "GBT游戏",
+                "target": "http://gbtgame.ysepan.com/",
+                "bgImage": "static/ico/gbtgame.png"
+            },
+            {
+                "name": "GooglePlay",
+                "target": "https://Play.Google.com",
+                "bgImage": "static/ico/GooglePlay.png"
+            },
+            {
+                "name": "MOD网站",
+                "target": "https://www.nexusmods.com/",
+                "bgImage": "static/ico/nexusmods.png"
+            },
+            {
+                "name": "slowroads",
+                "target": "https://slowroads.io/",
+                "bgImage": "static/ico/slowroads.png"
+            },
+            {
+                "name": "Steam",
+                "target": "https://store.steampowered.com/",
+                "bgImage": "static/ico/Steam.png"
+            },
+            {
+                "name": "SteamDB",
+                "target": "https://steamdb.info",
+                "bgImage": "static/ico/SteamDB.png"
+            },
+            {
+                "name": "Twitch",
+                "target": "https://www.twitch.tv/",
+                "bgImage": "static/ico/twitch.png"
+            },
+            {
+                "name": "yorg.io",
+                "target": "https://yorg.io/",
+                "bgImage": "static/ico/yorg.png"
+            },
+            {
+                "name": "单机游戏",
+                "target": "https://steamzg.com",
+                "bgImage": "static/ico/steamzg.png"
+            },
+            {
+                "name": "米哈社",
+                "target": "https://www.scyo123p8191.com/",
+                "bgImage": "static/ico/scyo123p8191.png"
+            },
+            {
+                "name": "摸鱼小游戏",
+                "target": "https://poki.com/zh",
+                "bgImage": "static/ico/poki.png"
+            },
+            {
+                "name": "摸鱼专区",
+                "target": "https://www.oschina.net/group/fishfish",
+                "bgImage": "static/ico/fishfish.png"
+            },
+            {
+                "name": "塔防战争",
+                "target": "https://kiomet.com/",
+                "bgImage": "static/ico/kiomet.png"
+            },
+            {
+                "name": "网易BUFF",
+                "target": "https://buff.163.com/",
+                "bgImage": "static/ico/buff.png"
+            },
+            {
+                "name": "小黑盒社区",
+                "target": "https://www.xiaoheihe.cn/app/bbs/home",
+                "bgImage": "static/ico/xiaoheihe.png"
+            },
+            {
+                "name": "游戏520",
+                "target": "https://www.gamer520.com/",
+                "bgImage": "static/ico/gamer520.png"
+            },
+            {
+                "name": "游戏天堂",
+                "target": "https://www.zzzzz688.com/",
+                "bgImage": "static/ico/zzzzz688.png"
+            },
+            {
+                "name": "老男人游戏网",
+                "target": "https://www.oldmantvg.net/",
+                "bgImage": "static/ico/oldmantvg.png"
+            },
+            {
+                "name": "play-cs",
+                "target": "https://play-cs.com/zh/servers",
+                "bgImage": "static/ico/play-cs.png"
+            }
+        ]
+    },
+    {
+        "index": 1,
+        "id": "network",
+        "name": "网络",
+        "children": [
+            {
+                "name": "12306",
+                "target": "https://kyfw.12306.cn",
+                "bgImage": "static/ico/12306.png"
+            },
+            {
+                "name": "Outlook",
+                "target": "https://outlook.live.com/",
+                "bgImage": "static/ico/Outlook.png"
+            },
+            {
+                "name": "2925无限邮",
+                "target": "https://www.2925.com/",
+                "bgImage": "static/ico/2925.png"
+            },
+            {
+                "name": "QQ邮箱",
+                "target": "https://mail.qq.com",
+                "bgImage": "static/ico/qqmail.png"
+            },
+            {
+                "name": "163邮箱",
+                "target": "http://mail.163.com/",
+                "bgImage": "static/ico/163mail.png"
+            },
+            {
+                "name": "126邮箱",
+                "target": "http://www.126.com",
+                "bgImage": "static/ico/126mail.png"
+            },
+            {
+                "name": "花瓣邮箱",
+                "target": "https://www.petalmail.com/",
+                "bgImage": "static/ico/petalmail.png"
+            },
+            {
+                "name": "临时邮箱",
+                "target": "http://24mail.chacuo.net/",
+                "bgImage": "static/ico/24mail.png"
+            },
+            {
+                "name": "UP云搜",
+                "target": "https://www.upyunso.com/",
+                "bgImage": "static/ico/upyunso.png"
+            },
+            {
+                "name": "123云盘",
+                "target": "https://www.123pan.com/",
+                "bgImage": "static/ico/123pan.png"
+            },
+            {
+                "name": "阿里云盘",
+                "target": "http://www.aliyundrive.com",
+                "bgImage": "static/ico/aliyundrive.png"
+            },
+            {
+                "name": "百度网盘",
+                "target": "https://pan.baidu.com/",
+                "bgImage": "static/ico/bdyp.png"
+            },
+            {
+                "name": "夸克云盘",
+                "target": "https://pan.quark.cn/",
+                "bgImage": "static/ico/quark.png"
+            },
+            {
+                "name": "蓝奏云",
+                "target": "http://pan.lanzou.com/",
+                "bgImage": "static/ico/lanzou.png"
+            },
+            {
+                "name": "天翼云盘",
+                "target": "https://cloud.189.cn",
+                "bgImage": "static/ico/189cloud.png"
+            },
+            {
+                "name": "华为云空间",
+                "target": "https://cloud.huawei.com",
+                "bgImage": "static/ico/huaweicloud.png"
+            },
+            {
+                "name": "OPPO云服务",
+                "target": "https://cloud.oppo.com/",
+                "bgImage": "static/ico/oppoyfw.png"
+            },
+            {
+                "name": "小布",
+                "target": "https://xiaobu.coloros.com/chat",
+                "bgImage": "static/ico/xiaobu.png"
+            },
+            {
+                "name": "豆包AI",
+                "target": "https://www.doubao.com",
+                "bgImage": "static/ico/doubao.png"
+            },
+            {
+                "name": "小艺",
+                "target": "https://xiaoyi.huawei.com",
+                "bgImage": "static/ico/xiaoyi.png"
+            },
+            {
+                "name": "有道翻译",
+                "target": "http://fanyi.youdao.com",
+                "bgImage": "static/ico/youdao.png"
+            },
+            {
+                "name": "腾讯交互翻译",
+                "target": "https://transmart.qq.com",
+                "bgImage": "static/ico/transmart.png"
+            },
+            {
+                "name": "微软翻译",
+                "target": "https://cn.bing.com/translator/",
+                "bgImage": "static/ico/bingtranslator.png"
+            },
+            {
+                "name": "问答库",
+                "target": "https://www.asklib.com/",
+                "bgImage": "static/ico/asklib.png"
+            },
+            {
+                "name": "NGA",
+                "target": "http://bbs.ngacn.cc/",
+                "bgImage": "static/ico/ngacn.png"
+            },
+            {
+                "name": "天涯论坛",
+                "target": "https://www.tianya.net.cn/",
+                "bgImage": "static/ico/tianya.png"
+            },
+            {
+                "name": "高德地图",
+                "target": "http://ditu.amap.com/",
+                "bgImage": "static/ico/gaode.png"
+            },
+            {
+                "name": "知乎盐选库pwd：rydw",
+                "target": "https://www.yuque.com/dayuyu-ualcu/azo1ge",
+                "bgImage": "static/ico/yuque.png"
+            },
+            {
+                "name": "我不是盐神",
+                "target": "https://onehu.xyz/",
+                "bgImage": "static/ico/onehu.png"
+            },
+            {
+                "name": "盐神居",
+                "target": "https://saltsgod.com/",
+                "bgImage": "static/ico/saltsgod.png"
+            },
+            {
+                "name": "沙雕新闻",
+                "target": "https://shadiao.plus/",
+                "bgImage": "static/ico/shadiao.png"
+            },
+            {
+                "name": "ACG港湾",
+                "target": "https://www.acggw.me/",
+                "bgImage": "static/ico/acggw.png"
+            },
+            {
+                "name": "iiice导航",
+                "target": "https://www.iiice.cn/",
+                "bgImage": "static/ico/iiice.png"
+            }
+        ]
+    },
+    {
+        "index": 2,
+        "id": "tools",
+        "name": "工具",
+        "children": [
+            {
+                "name": "威海社保",
+                "target": "https://rsjwsfw.weihai.cn/hsp",
+                "bgImage": "static/ico/weihaishebao.png"
+            },
+            {
+                "name": "威海医保",
+                "target": "https://whybdwwt.weihai.cn/SmPsc",
+                "bgImage": "static/ico/weihaiyibao.png"
+            },
+            {
+                "name": "让我帮你百度",
+                "target": "https://ffis.me/baidu/index.html",
+                "bgImage": "static/ico/ff.png"
+            },
+            {
+                "name": "无极磁链",
+                "target": "https://0cili.net/",
+                "bgImage": "static/ico/0cili.png"
+            },
+            {
+                "name": "免费API",
+                "target": "https://xxapi.cn",
+                "bgImage": "static/ico/xxapi.png"
+            },
+            {
+                "name": "在线工具",
+                "target": "https://tool.lu",
+                "bgImage": "static/ico/zxgj.png"
+            },
+            {
+                "name": "即时小工具",
+                "target": "https://www.67tool.com/",
+                "bgImage": "static/ico/67tool.png"
+            },
+            {
+                "name": "轻工具",
+                "target": "https://qinggongju.com",
+                "bgImage": "static/ico/qinggongju.png"
+            },
+            {
+                "name": "快搜",
+                "target": "https://search.chongbuluo.com/",
+                "bgImage": "static/ico/chongbuluo.png"
+            },
+            {
+                "name": "爱搜(盘搜)",
+                "target": "https://www.esoua.com/",
+                "bgImage": "static/ico/esoua.png"
+            },
+            {
+                "name": "鸠摩搜索",
+                "target": "https://www.jiumodiary.com/",
+                "bgImage": "static/ico/jiumodiary.png"
+            },
+            {
+                "name": "开发者搜索",
+                "target": "https://kaifa.baidu.com/",
+                "bgImage": "static/ico/kaifasearch.png"
+            },
+            {
+                "name": "GreenVideo",
+                "target": "https://greenvideo.cc/",
+                "bgImage": "static/ico/GreenVideo.png"
+            },
+            {
+                "name": "WallpapersCraft",
+                "target": "https://wallpaperscraft.com/",
+                "bgImage": "static/ico/wallpaperscraft.png"
+            },
+            {
+                "name": "极简壁纸",
+                "target": "https://bz.zzzmh.cn/",
+                "bgImage": "static/ico/zzzmh.png"
+            },
+            {
+                "name": "iconKit",
+                "target": "https://iconkit.cn/",
+                "bgImage": "static/ico/iconkit.png"
+            },
+            {
+                "name": "阿里图标库",
+                "target": "https://www.iconfont.cn/",
+                "bgImage": "static/ico/iconfont.png"
+            },
+            {
+                "name": "哲风壁纸",
+                "target": "https://haowallpaper.com/",
+                "bgImage": "static/ico/haowallpaper.png"
+            },
+            {
+                "name": "雨滴美化社区",
+                "target": "https://bbs.rainmeter.cn/forum.php",
+                "bgImage": "static/ico/rainmeter.png"
+            },
+            {
+                "name": "致美化",
+                "target": "http://zhutix.com/",
+                "bgImage": "static/ico/zhutix.png"
+            },
+            {
+                "name": "背景生成",
+                "target": "https://bggenerator.com/",
+                "bgImage": "static/ico/bggenerator.png"
+            },
+            {
+                "name": "短网址",
+                "target": "https://www.urlc.cn/user",
+                "bgImage": "static/ico/urlc.png"
+            },
+            {
+                "name": "ITDOG",
+                "target": "https://www.itdog.cn/",
+                "bgImage": "static/ico/itdog.png"
+            },
+            {
+                "name": "和风天气API",
+                "target": "https://console.qweather.com/",
+                "bgImage": "static/ico/qweather.png"
+            },
+            {
+                "name": "各国网址",
+                "target": "http://www.world68.com/country.asp",
+                "bgImage": "static/ico/world68.png"
+            },
+            {
+                "name": "奇趣网站收藏",
+                "target": "https://fuun.fun",
+                "bgImage": "static/ico/fuun.png"
+            },
+            {
+                "name": "资源收藏夹",
+                "target": "https://zyscj.com/",
+                "bgImage": "static/ico/zyscj.png"
+            },
+            {
+                "name": "书签地球",
+                "target": "https://www.bookmarkearth.cn/",
+                "bgImage": "static/ico/bookmarkearth.png"
+            },
+            {
+                "name": "乐于分享",
+                "target": "https://fffxx.com/",
+                "bgImage": "static/ico/fffxx.png"
+            },
+            {
+                "name": "获取图标",
+                "target": "https://pushkeen.ai/",
+                "bgImage": "static/ico/pushkeen.png"
+            },
+            {
+                "name": "图片转换",
+                "target": "https://to.imagestool.com/zh-CN/",
+                "bgImage": "static/ico/ImagesTool.png"
+            },
+            {
+                "name": "中国省份",
+                "target": "https://vultr.youmu.moe/quiz/",
+                "bgImage": "static/ico/chinap.png"
+            },
+            {
+                "name": "OpenWeather",
+                "target": "https://home.openweathermap.org/",
+                "bgImage": "static/ico/openweather.png",
+                "note": "1ae4872158e8060bccba7715c340548a"
+            },
+            {
+                "name": "斗图",
+                "target": "https://www.doutupk.com/",
+                "bgImage": "static/ico/doutupk.png"
+            },
+            {
+                "name": "幕布",
+                "target": "https://mubu.com/list",
+                "bgImage": "static/ico/mubu.png"
+            },
+            {
+                "name": "墨刀",
+                "target": "https://modao.cc",
+                "bgImage": "static/ico/modao.png"
+            },
+            {
+                "name": "椰子",
+                "target": "http://h5.yezi86.com:90/#/login",
+                "bgImage": "static/ico/yezi.png"
+            },
+            {
+                "name": "虫洞传输",
+                "target": "https://wormhole.app/",
+                "bgImage": "static/ico/wormhole.png"
+            },
+            {
+                "name": "奶牛快传",
+                "target": "https://www.cowtransfer.com",
+                "bgImage": "static/ico/cowtransfer.png"
+            },
+            {
+                "name": "versus对比",
+                "target": "https://versus.com/cn",
+                "bgImage": "static/ico/versus.png"
+            },
+            {
+                "name": "CPU天梯图",
+                "target": "https://topic.expreview.com/CPU/",
+                "bgImage": "static/ico/cpugpu.png"
+            },
+            {
+                "name": "GPU天梯图",
+                "target": "https://topic.expreview.com/GPU/",
+                "bgImage": "static/ico/cpugpu.png"
+            },
+            {
+                "name": "中科大测速",
+                "target": "https://test.ustc.edu.cn/",
+                "bgImage": "static/ico/zkdcs.png"
+            },
+            {
+                "name": "鼠标测试",
+                "target": "https://www.mousetester.cn/",
+                "bgImage": "static/ico/mousetest.png"
+            }
+        ]
+    },
+    {
+        "index": 3,
+        "id": "software",
+        "name": "软件",
+        "children": [
+            {
+                "name": "GitHub",
+                "target": "https://github.com/",
+                "bgImage": "static/ico/github-black.png"
+            },
+            {
+                "name": "Gitee",
+                "target": "https://gitee.com",
+                "bgImage": "static/ico/gitee.png"
+            },
+            {
+                "name": "油叉镜像站",
+                "target": "https://gf.qytechs.cn/zh-CN",
+                "bgImage": "static/ico/greasyfork.png"
+            },
+            {
+                "name": "Greasy",
+                "target": "https://greasyfork.org/zh-CN",
+                "bgImage": "static/ico/greasyfork.png"
+            },
+            {
+                "name": "CSDN",
+                "target": "http://www.csdn.net/",
+                "bgImage": "static/ico/CSDN.png"
+            },
+            {
+                "name": "菜鸟教程",
+                "target": "http://www.runoob.com/",
+                "bgImage": "static/ico/runoob.png"
+            },
+            {
+                "name": "Ubuntu中文论坛",
+                "target": "http://forum.ubuntu.org.cn/",
+                "bgImage": "static/ico/ubuntu.png"
+            },
+            {
+                "name": "Rocky Linux",
+                "target": "https://www.rockylinux.cn/",
+                "bgImage": "static/ico/rockylinux.png"
+            },
+            {
+                "name": "达梦8下载",
+                "target": "https://eco.dameng.com/download/",
+                "bgImage": "static/ico/dameng.png"
+            },
+            {
+                "name": "OpenEuler(linux)",
+                "target": "https://www.openeuler.org/zh/learn/mooc/detail/",
+                "bgImage": "static/ico/OpenEuler.png"
+            },
+            {
+                "name": "MSDN,我告诉你",
+                "target": "https://msdn.itellyou.cn/",
+                "bgImage": "static/ico/MSDN.png"
+            },
+            {
+                "name": "不忘初心win",
+                "target": "https://www.pc528.net/",
+                "bgImage": "static/ico/pc528.png"
+            },
+            {
+                "name": "软件开源替代",
+                "target": "https://openalternative.co/",
+                "bgImage": "static/ico/openalternative.png"
+            },
+            {
+                "name": "3DM软件",
+                "target": "https://soft.3dmgame.com/",
+                "bgImage": "static/ico/3dm.png"
+            },
+            {
+                "name": "绿软小站",
+                "target": "https://www.gndown.com/",
+                "bgImage": "static/ico/gndown.png"
+            },
+            {
+                "name": "果核剥壳",
+                "target": "https://www.ghxi.com",
+                "bgImage": "static/ico/ghxi.png"
+            },
+            {
+                "name": "开源中国",
+                "target": "http://www.oschina.net/",
+                "bgImage": "static/ico/oschina.png"
+            },
+            {
+                "name": "正版中国",
+                "target": "https://getitfree.cn/",
+                "bgImage": "static/ico/getitfree.png"
+            },
+            {
+                "name": "apkPremier",
+                "target": "https://apkpremier.com/",
+                "bgImage": "static/ico/apkpremier.png"
+            },
+            {
+                "name": "酷安网",
+                "target": "http://www.coolapk.com/",
+                "bgImage": "static/ico/coolapk.png"
+            },
+            {
+                "name": "ihack软件",
+                "target": "https://ihacksoft.com/",
+                "bgImage": "static/ico/ihacksoft.png"
+            },
+            {
+                "name": "异星软件空间",
+                "target": "http://yx.bsh.me/",
+                "bgImage": "static/ico/yxbsh.png"
+            },
+            {
+                "name": "专注于Win7",
+                "target": "https://www.newxitong.com/",
+                "bgImage": "static/ico/newxitong.png"
+            },
+            {
+                "name": "资源铺",
+                "target": "https://zypuu.com/",
+                "bgImage": "static/ico/zypuu.png"
+            },
+            {
+                "name": "ysindex",
+                "target": "https://rowling7.github.io/ysindex/",
+                "bgImage": "static/ico/github.png"
+            }
+        ]
+    },
+    {
+        "index": 4,
+        "id": "temp",
+        "name": "临时",
+        "children": [
+            {
+                "name": "Linux命令",
+                "target": "https://zhuanlan.zhihu.com/p/560751712",
+                "bgImage": "static/ico/zhihu.png"
+            },
+            {
+                "name": "aigei加载图标",
+                "target": "https://www.aigei.com/lib/gif/jia_zai_xu/",
+                "bgImage": "static/ico/aigei.png"
+            },
+            {
+                "name": "LKSSite",
+                "target": "https://lkssite.vip/",
+                "bgImage": "static/ico/LKSSite.png"
+            },
+            {
+                "name": "ik009",
+                "target": "https://www.ik009.top/",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "xx01",
+                "target": "https://d4.xx01.my/",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "xiuren",
+                "target": "https://w7.xiuren.ee/",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "Random",
+                "target": "random.html",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "Ballerina",
+                "target": "https://ww1.lookmovie.pn/movies/play/7181546-ballerina-2025?ref=os&utm_source=osub_sub&imdb=tt7181546&term=Ballerina&sub=13174865",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "----------",
+                "target": "",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "----------",
+                "target": "",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "----------",
+                "target": "",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            },
+            {
+                "name": "----------",
+                "target": "",
+                "bgImage": "static/ico/loading0_compressed.gif"
+            }
+        ]
+    },
+    {
+        "index": 5,
+        "id": "trash",
+        "name": "🗑️",
+        "children": [
+            {
+                "name": "MVCAT",
+                "target": "https://www.mvcat.com/",
+                "bgImage": "static/ico/MVCAT.png"
+            },
+            {
+                "name": "трекер RuTrac",
+                "target": "http://rutracker.org/forum/index.php",
+                "bgImage": "static/ico/rut.png"
+            },
+            {
+                "name": "影视",
+                "target": "https://www.yjys02.com/",
+                "bgImage": "static/ico/yjys02.png"
+            },
+            {
+                "name": "Tinywow",
+                "target": "https://tinywow.com/",
+                "bgImage": "static/ico/tinywow.png"
+            },
+            {
+                "name": "FMHY",
+                "target": "https://fmhy.net/",
+                "bgImage": "static/ico/fmhy.png"
+            },
+            {
+                "name": "423Down",
+                "target": "http://www.423down.com/",
+                "bgImage": "static/ico/423Down.png"
+            },
+            {
+                "name": "APK下载",
+                "target": "https://apk.bot/",
+                "bgImage": "static/ico/apkdn.png"
+            },
+            {
+                "name": "蓝鲨",
+                "target": "https://www.lsapk.com",
+                "bgImage": "static/ico/lsapk.png"
+            },
+            {
+                "name": "老殁|殁漂遥",
+                "target": "https://mpyit.com",
+                "bgImage": "static/ico/mpyit.png"
+            },
+            {
+                "name": "绿色软件",
+                "target": "http://www.xdowns.com/",
+                "bgImage": "static/ico/xdowns.png"
+            },
+            {
+                "name": "亿破姐",
+                "target": "https://www.ypojie.com/",
+                "bgImage": "static/ico/ypojie.png"
+            }
+        ]
+    }
+]
