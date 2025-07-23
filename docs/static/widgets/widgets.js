@@ -332,31 +332,31 @@ class WorkTimeWidget extends BaseWidget {
 
 // 天气组件
 class WeatherWidget extends BaseWidget {
+
+  getDefaultOptions() {
+    return {
+      ...super.getDefaultOptions(),
+      apiKey: "269d058c99d1f3cdcd9232f62910df1d",
+      defaultCity: "Weihai",
+      cityDataPath: "static/data/city.json"
+    };
+  }
   constructor(options = {}) {
     super({
       ...options,
       widgetClass: "widget weather-widget widget-row2Col2",
     });
 
-    // 合并默认配置
-    this.options = {
-      apiKey: "269d058c99d1f3cdcd9232f62910df1d", // OpenWeatherMap API Key
-      defaultCity: "Weihai", // 默认城市
-      cityDataPath: "static/data/city.json", // 城市数据路径
-      ...this.options,
-      ...options,
-    };
-
     // 初始化
     this.init();
   }
 
   async init() {
-    // 加载城市数据
-    await this.loadCityData();
-
     // 渲染组件
     this.render();
+
+    // 加载城市数据
+    await this.loadCityData();
 
     // 默认查询天气
     this.getWeather();
@@ -1198,7 +1198,7 @@ function initWidgets() {
   const clock = new ClockWidget({
     containerId: "clockContainer",
     highlightColor: "#ff5722",
-    use24HourFormat:true,
+    use24HourFormat: true,
   });
 
   // 初始化工作倒计时组件
