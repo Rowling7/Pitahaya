@@ -29,12 +29,12 @@ function toggleElements(shouldHide) {
             element.classList.add('exit');
             element.addEventListener('animationend', () => {
                 element.style.display = 'none';
-                localStorage.setItem('simpleModeState', 'hidden'); // 状态存储
+                localStorage.setItem('eraserModState', 'hidden'); // 状态存储
             }, { once: true });
         } else {
             element.style.display = element.dataset.originalDisplay;
             element.classList.add('enter');
-            localStorage.setItem('simpleModeState', 'shown'); // 状态存储
+            localStorage.setItem('eraserModState', 'shown'); // 状态存储
             element.addEventListener('animationend', () => {
                 element.classList.remove('enter');
             }, { once: true });
