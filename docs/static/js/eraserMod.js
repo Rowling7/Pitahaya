@@ -49,7 +49,7 @@ document.getElementById('eraserMod').addEventListener('click', () => {
         !el.classList.contains('exit')
     );
     toggleElements(isAnyVisible);
-
+    window.ToastManager.info(isAnyVisible ? "简洁模式" : "正常模式",500);
     // 新增状态控制
     const siteFront = document.querySelector('.navbar-brand');
     if (!isAnyVisible) {
