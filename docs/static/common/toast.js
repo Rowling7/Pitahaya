@@ -16,20 +16,24 @@ class Toast {
         return container;
     }
 
+    // 修改 toast.js 中的 show 方法
+
     show(message, type = 'info', duration = 3000) {
         return new Promise((resolve) => {
             const toast = document.createElement('div');
             toast.className = `toast toast-${type}`;
-            toast.textContent = message;
 
-            // 添加进度条
-            const progress = document.createElement('div');
-            progress.className = 'toast-progress';
-            progress.style.animationDuration = `${duration}ms`;
-            progress.style.animationName = 'progress';
-            progress.style.animationFillMode = 'forwards';
-            toast.appendChild(progress);
+            // 创建内容容器
+            const content = document.createElement('div');
+            content.className = 'toast-content';
+            content.textContent = message;
+            toast.appendChild(content);
 
+            // 添加圆形进度条
+            const timer = document.createElement('div');
+            timer.className = 'toast-timer';
+            timer.style.animationDuration = `${duration}ms`;
+            toast.appendChild(timer);
 
             this.container.appendChild(toast);
 
@@ -40,13 +44,13 @@ class Toast {
             toast.classList.add('show');
 
             // 设置自动隐藏
-            const timer = setTimeout(() => {
+            const hideTimer = setTimeout(() => {
                 this.hide(toast, resolve);
             }, duration);
 
             // 点击隐藏
             toast.addEventListener('click', () => {
-                clearTimeout(timer);
+                clearTimeout(hideTimer);
                 this.hide(toast, resolve);
             });
         });
