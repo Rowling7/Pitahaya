@@ -1,3 +1,17 @@
+//根据访问的是localhost还是github决定图片加载gif还是icoico--开始
+window.onload = function () {
+    const imgElement = document.getElementById('gifORpng');
+    const isGitHub = window.location.hostname.includes('github.io');
+
+    if (isGitHub) {
+        imgElement.src = 'static/ico/favicon.ico';
+    } else {
+        imgElement.src = 'static/ico/gif4head.gif';
+    }
+};
+//根据访问的是localhost还是github决定图片加载gif还是icoico--结束
+
+//读取data.json
 fetch("static/data/data.json")
   .then((response) => {
     if (!response.ok) {

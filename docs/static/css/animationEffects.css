@@ -61,13 +61,14 @@
 
 
 
-/* 标题文字 ---开始 ---*/
+/* 标题文字动画 ---开始 ---*/
 .navbar-brand {
   color: rgba(11, 14, 214, 1);
   display: inline-block;
   position: relative;
   transition: color 0.4s linear;
   text-decoration: none;
+  margin: 0 8px;
 }
 
 .navbar-brand:before,
