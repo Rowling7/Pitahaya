@@ -70,6 +70,13 @@ class Modal {
     open() {
         this.overlay.classList.add("active");
         document.body.style.overflow = "hidden";
+
+        // 如果有 onOpen 回调，则执行
+        if (typeof this.options.onOpen === "function") {
+            setTimeout(() => {
+                this.options.onOpen();
+            }, 0);
+        }
     }
 
     close() {
@@ -119,7 +126,6 @@ class SearchModal extends Modal {
         try {
             const response = await fetch("static/data/data.json");
             this.searchData = await response.json();
-            console.log("搜索数据加载成功:", this.searchData);
             // 初始化搜索UI
             this.setContent(`
                 <div class="search-modal-content">
@@ -134,6 +140,11 @@ class SearchModal extends Modal {
             this.resultsContainer = this.body.querySelector(
                 ".search-results-container"
             );
+
+            // 在这里直接聚焦
+            if (this.searchInput) {
+                this.searchInput.focus();
+            }
 
             // 绑定输入事件
             this.searchInput.addEventListener("input", (e) =>
@@ -298,7 +309,7 @@ class SettingsModal extends Modal {
             const element = this.body.querySelector(`#${button.id}`);
             element.addEventListener("click", () => {
                 localStorage.removeItem(button.key);
-                window.ToastManager.success(`${button.label}已清除`,5000);
+                window.ToastManager.success(`${button.label}已清除`, 5000);
             });
         });
 
@@ -307,7 +318,7 @@ class SettingsModal extends Modal {
             clearButtons.forEach(button => {
                 localStorage.removeItem(button.key);
             });
-            window.ToastManager.warning("所有设置已清除",5000);
+            window.ToastManager.warning("所有设置已清除", 5000);
         });
     }
 }

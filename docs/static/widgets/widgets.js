@@ -1245,6 +1245,7 @@ function initWidgets() {
   // 初始化拖拽排序
   initSortable(widgetContainer, widgetOrder);
 }
+
 // 初始化拖拽排序功能
 function initSortable(container, initialOrder) {
   new Sortable(container, {
