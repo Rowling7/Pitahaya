@@ -321,7 +321,10 @@ class SettingsModal extends Modal {
             clearButtons.forEach(button => {
                 localStorage.removeItem(button.key);
             });
-            window.ToastManager.warning("所有设置已清除", 5000);
+            window.ToastManager.warning("所有设置已清除", 2000);
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
         });
     }
 }

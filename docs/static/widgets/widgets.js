@@ -341,15 +341,14 @@ class WorkTimeWidget extends BaseWidget {
 
 // 天气组件
 class WeatherWidget extends BaseWidget {
-
   getDefaultOptions() {
     return {
       ...super.getDefaultOptions(),
       apiKey: "269d058c99d1f3cdcd9232f62910df1d",
-      defaultCity: "Weihai",
-      cityDataPath: "static/data/city.json"
+      defaultCity: "Weihai"
     };
   }
+
   constructor(options = {}) {
     super({
       ...options,
@@ -364,30 +363,8 @@ class WeatherWidget extends BaseWidget {
     // 渲染组件
     this.render();
 
-    // 加载城市数据
-    await this.loadCityData();
-
     // 默认查询天气
     this.getWeather();
-  }
-
-  async loadCityData() {
-    if (!this.options.cityDataPath) {
-      console.info("缺少cityDataPath配置");
-      return;
-    }
-
-    try {
-      const response = await fetch(this.options.cityDataPath);
-      if (!response.ok) throw new Error("网络响应不正常");
-
-      const data = await response.json();
-      if (!data.city) throw new Error("城市数据格式错误");
-
-      this.cityData = data.city.flatMap((group) => group.list);
-    } catch (error) {
-      console.error("加载城市数据失败:", error);
-    }
   }
 
   render() {
@@ -407,8 +384,7 @@ class WeatherWidget extends BaseWidget {
             <option value="Wuhan">武汉</option>
             <option value="Guiyang">贵阳</option>
           </select>
-          <input type="text" class="city-input" list="citySuggestions" placeholder="城市">
-          <datalist id="citySuggestions"></datalist>
+          <input type="text" class="city-input" placeholder="城市">
           <button class="weather-btn">查询</button>
         </div>
 
@@ -456,16 +432,6 @@ class WeatherWidget extends BaseWidget {
       </div>
     `;
 
-    // 填充城市建议
-    if (this.cityData) {
-      const datalist = document.getElementById("citySuggestions");
-      this.cityData.forEach((city) => {
-        const option = document.createElement("option");
-        option.value = city.name;
-        datalist.appendChild(option);
-      });
-    }
-
     // 设置默认城市
     document.querySelector(".city-select").value = this.options.defaultCity;
 
@@ -488,28 +454,11 @@ class WeatherWidget extends BaseWidget {
 
     // 优先使用输入框的值
     if (inputValue !== "") {
-      // 检查是否是中文
-      const isChinese = /[\u4e00-\u9fa5]/.test(inputValue);
-      if (isChinese) {
-        // 查找匹配的中文城市
-        const matchedCity = this.cityData.find(
-          (item) => item.name === inputValue || item.label.includes(inputValue)
-        );
-        city = matchedCity?.pinyin || null;
-      } else {
-        // 直接使用输入的拼音/英文
-        city = inputValue;
-      }
+      city = inputValue;
+      console.log("使用输入值:", city);
     } else {
       // 使用下拉框选择的值
       city = selectValue;
-    }
-
-    if (!city) {
-      console.error("无效的城市名称");
-      // 显示错误提示
-      this.showError("请输入有效的城市名称");
-      return;
     }
 
     // 显示加载状态
@@ -517,9 +466,10 @@ class WeatherWidget extends BaseWidget {
 
     // 添加units=metric参数获取摄氏温度
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.options.apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${this.options.apiKey}&units=metric`
     )
       .then((response) => {
+        console.log("天气API响应状态:", response.status);
         if (!response.ok) {
           throw new Error(`HTTP错误: ${response.status}`);
         }
@@ -532,12 +482,11 @@ class WeatherWidget extends BaseWidget {
         this.updateWeatherUI(weatherData);
       })
       .catch((error) => {
-        console.error("获取天气数据失败:", error);
-        this.showError(error.message);
+        this.showError(`获取天气数据失败: ${error.message}`);
       });
   }
 
-  // 新增方法：显示加载状态
+  // 显示加载状态
   showLoading() {
     const resultElement = document.querySelector(".weather-result");
     if (resultElement) {
@@ -546,7 +495,7 @@ class WeatherWidget extends BaseWidget {
     }
   }
 
-  // 新增方法：显示错误信息
+  // 显示错误信息
   showError(message) {
     const resultElement = document.querySelector(".weather-result");
     if (resultElement) {
@@ -554,6 +503,7 @@ class WeatherWidget extends BaseWidget {
       resultElement.style.color = "red";
     }
   }
+
   getWindLevel(speed) {
     if (speed < 0.3) return "0级";
     if (speed < 1.6) return "1级";
@@ -611,12 +561,6 @@ class WeatherWidget extends BaseWidget {
     const temp = weatherData.main.temp.toFixed(1);
     document.querySelector(".weather-temp").textContent = temp;
 
-    /*const tempMax = (weatherData.main.temp_max - 273.15).toFixed(0);
-    document.querySelector(".weather-temp-max").textContent = `${tempMax}°`;
-
-    const tempMin = (weatherData.main.temp_min - 273.15).toFixed(0);
-    document.querySelector(".weather-temp-min").textContent = `${tempMin}°`;
-    */
     document.querySelector(
       ".weather-site"
     ).textContent = `${weatherData.name} / ${weatherData.sys.country}`;
@@ -641,9 +585,6 @@ class WeatherWidget extends BaseWidget {
     const directions = ["北", "东北", "东", "东南", "南", "西南", "西", "西北"];
     const index = Math.round((windDeg % 360) / 45) % 8;
     document.querySelector(".wind-deg").textContent = directions[index];
-
-    // 设置背景
-    //this.container.style.backgroundImage = `url(${iconUrl})`;
   }
 }
 
