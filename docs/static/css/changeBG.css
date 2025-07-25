@@ -31,3 +31,9 @@ body {
 .card-text {
     color: color-mix(in srgb, var(--text-color) 70%, transparent) !important;
 }
+
+
+video.card-img-top {
+    background-color: background: var(--card-bg);
+}
+

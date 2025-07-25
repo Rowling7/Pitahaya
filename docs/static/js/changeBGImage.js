@@ -2,7 +2,7 @@ let cardData = Array.from({ length: 81 }, (_, i) => {
     const num = (i + 1).toString().padStart(3, '0');
     //const num = (99 - i).toString().padStart(3, '0');
     return {
-        imgSrc: `static/background/bg${num}.png`,
+        imgSrc: `static/background/image${num}.png`,
         title: "",
         description: "",
         alt: ""
