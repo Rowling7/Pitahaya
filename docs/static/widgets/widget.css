@@ -25,8 +25,8 @@
     border: 1px solid var(--box-solid-color);
     box-sizing: border-box;
     overflow: hidden;
-    min-width: 220px;
-    min-height: 220px;
+    /*min-width: 220px;
+    min-height: 220px;*/
 }
 
 /* 时钟组件特定样式 */
@@ -982,6 +982,42 @@
     border: 1px solid var(--text-color);
     border-radius: 8px;
 }
+
+
+/* daily60s组件样式 */
+.daily60s-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.daily60s-widget:hover {
+    transform: scale(1.02);
+}
+
+.daily60s-icon {
+    font-size: 2.5rem;
+    color: var(--highlight-color, #9c27b0);
+}
+
+.daily60s-title {
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.daily60s-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 0.9rem;
+}
+
+
 
 
 

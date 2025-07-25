@@ -1119,6 +1119,96 @@ class CalendarWidget extends BaseWidget {
   }
 }
 
+// Daily60s 组件
+class Daily60sWidget extends BaseWidget {
+  getDefaultOptions() {
+    return {
+      ...super.getDefaultOptions(),
+      widgetClass: "widget daily60s-widget widget-row1Col1",
+      apiUrl: "https://v2.xxapi.cn/api/hot60s"
+    };
+  }
+
+  async init() {
+    const container = document.getElementById(this.options.containerId);
+    if (!container) {
+      console.error(`容器 ${this.options.containerId} 未找到`);
+      return;
+    }
+
+    // 渲染初始内容
+    this.render();
+
+    // 获取数据
+    await this.fetchDaily60s();
+  }
+
+  render() {
+    this.container.innerHTML = `
+            <div class="widget-icon shortcut-icon">
+                <div class="daily60s-icon">
+                    <i class="bi bi-chat-square-dots"></i>
+                </div>
+                <div class="daily60s-title">每日60s</div>
+            </div>
+        `;
+
+    // 绑定点击事件
+    this.container.addEventListener('click', () => {
+      this.showModal();
+    });
+  }
+
+  async fetchDaily60s() {
+    try {
+      const response = await fetch(this.options.apiUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.code === 200 && data.data) {
+        this.imageData = data.data;
+      } else {
+        throw new Error('数据格式错误');
+      }
+    } catch (error) {
+      console.error('获取每日60s数据失败:', error);
+      // 使用默认图片或显示错误状态
+      this.imageData = null;
+    }
+  }
+
+  showModal() {
+    if (!this.imageData) {
+      window.ToastManager.error('图片数据加载失败', 2000);
+      return;
+    }
+
+    const modal = new Modal({
+      title: "每日60秒读懂世界",
+      content: `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <img src="${this.imageData}" alt="每日60秒读懂世界" style="max-width: 100%; max-height: 70vh; border-radius: 8px;">
+                </div>
+            `,
+      buttons: [
+        {
+          text: "关闭",
+          type: "secondary",
+          handler: () => modal.close()
+        }
+      ]
+    });
+
+    modal.open();
+  }
+}
+
+
+
+
 
 function initWidgets() {
   // 初始化时检查保存的主题
@@ -1140,7 +1230,8 @@ function initWidgets() {
     'weatherContainer',
     'shortcutContainer',
     'hotPointContainer',
-    'yiyanContainer'
+    'yiyanContainer',
+    'daily60sContainer'
 
   ];
   // 创建组件容器，按照保存的顺序排列
@@ -1148,14 +1239,14 @@ function initWidgets() {
 
 
   // 初始化时钟组件
-  const clock = new ClockWidget({
+  new ClockWidget({
     containerId: "clockContainer",
     highlightColor: "#ff5722",
     use24HourFormat: true,
   });
 
   // 初始化工作倒计时组件
-  const workTime = new WorkTimeWidget({
+  new WorkTimeWidget({
     containerId: "workTimeContainer",
     workHours: {
       start: "07:50",
@@ -1188,6 +1279,11 @@ function initWidgets() {
   // 初始化日历组件
   new CalendarWidget({
     containerId: "calendarContainer"
+  });
+
+  // 初始化 Daily60s 组件
+  new Daily60sWidget({
+    containerId: "daily60sContainer"
   });
 
   // 初始化拖拽排序
