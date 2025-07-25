@@ -1180,6 +1180,7 @@ class Daily60sWidget extends BaseWidget {
     }
   }
 
+  // 修改 Daily60sWidget 类中的 showModal 方法
   showModal() {
     if (!this.imageData) {
       window.ToastManager.error('图片数据加载失败', 2000);
@@ -1189,10 +1190,10 @@ class Daily60sWidget extends BaseWidget {
     const modal = new Modal({
       title: "每日60秒读懂世界",
       content: `
-                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                    <img src="${this.imageData}" alt="每日60秒读懂世界" style="max-width: 100%; max-height: 70vh; border-radius: 8px;">
-                </div>
-            `,
+            <div id="daily60s-viewer" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img src="${this.imageData}" alt="每日60秒读懂世界" style="max-width: 100%; max-height: 70vh; border-radius: 8px; cursor: zoom-in;">
+            </div>
+        `,
       buttons: [
         {
           text: "关闭",
@@ -1203,6 +1204,51 @@ class Daily60sWidget extends BaseWidget {
     });
 
     modal.open();
+
+    // 在模态框打开后初始化 viewer.js
+    setTimeout(() => {
+      const imageContainer = modal.body.querySelector('#daily60s-viewer');
+      const image = imageContainer.querySelector('img');
+
+      if (image) {
+        // 初始化 viewer.js
+        const viewer = new Viewer(image, {
+          inline: false,
+          button: true,
+          navbar: true,
+          title: true,
+          toolbar: {
+            zoomIn: 1,
+            zoomOut: 1,
+            oneToOne: 1,
+            reset: 1,
+            prev: 0, // 因为只有一张图片，所以隐藏 prev/next
+            play: 0,
+            next: 0,
+            rotateLeft: 1,
+            rotateRight: 1,
+            flipHorizontal: 1,
+            flipVertical: 1,
+          },
+          movable: true,
+          zoomable: true,
+          rotatable: true,
+          scalable: true,
+          transition: true,
+          fullscreen: true,
+          keyboard: true,
+          // 点击图片时触发查看器
+          viewed() {
+            // 可以在这里添加查看器打开后的操作
+          }
+        });
+
+        // 点击图片时打开 viewer
+        image.addEventListener('click', function () {
+          viewer.show();
+        });
+      }
+    }, 0);
   }
 }
 
