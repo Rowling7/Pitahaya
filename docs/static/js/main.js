@@ -160,8 +160,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-bs-theme', savedTheme);
 
+  localStorage.setItem("bgEffects", "disabled");
   // 读取背景图片
-  localStorage.setItem("wallpaperEnabled", "false"); // 存储禁用状态
+  //localStorage.setItem("wallpaperEnabled", "false"); // 存储禁用状态
   const selectedBackground = localStorage.getItem('selectedBackground');
   if (selectedBackground) {
     document.getElementById('bodyId').style.backgroundImage = `url(${selectedBackground})`;
@@ -176,16 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (videoContainer) {
       videoContainer.querySelector('source').src = savedVideoBackground;
       videoContainer.load(); // 重新加载视频元素
-    }
-  }
-
-  // 如果同时保存了selectedBackground但没有视频背景，则清除视频背景
-  const selectedBg = localStorage.getItem("selectedBackground");
-  if (selectedBg && selectedBg.endsWith('.mp4')) {
-    const videoContainer = document.querySelector('.video-container video');
-    if (videoContainer) {
-      videoContainer.querySelector('source').src = selectedBg;
-      videoContainer.load();
     }
   }
 });

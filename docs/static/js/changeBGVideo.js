@@ -67,17 +67,15 @@ function createVideoCardElement(item) {
     video.loop = true;  // 循环播放
     video.addEventListener("click", () => {
         // 设置背景视频源
-        localStorage.setItem("selectedBackground", item.videoSrc);
-        // 同时设置视频背景源
         localStorage.setItem("videoBackgroundSrc", item.videoSrc);
         window.location.href = "index.html";
     });
-    
+
     // 鼠标悬停时播放视频
     video.addEventListener("mouseenter", () => {
         video.play();
     });
-    
+
     // 鼠标离开时暂停视频
     video.addEventListener("mouseleave", () => {
         video.pause();

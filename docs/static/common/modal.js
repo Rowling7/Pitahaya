@@ -237,11 +237,12 @@ class SettingsModal extends Modal {
                     </div>
                     <h6>清除设置</h6>
                     <div class="settings-clear-buttons">
-                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>
+                        <!--<button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>-->
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clockFormat">小时制</button>
-                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间</button>
-                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">选中背景</button>
+                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
+                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">图片背景</button>
+                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="videoBackgroundSrc">视频背景</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearTheme">主题设置</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
                         <button class="btn btn-sm btn-danger mb-2 me-2" id="clearAllSettings">清除所有设置</button>
@@ -271,11 +272,12 @@ class SettingsModal extends Modal {
                 </div>
                 <h6>清除设置</h6>
                 <div class="settings-clear-buttons">
-                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>
+                    <!--<button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>-->
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clockFormat">小时制</button>
-                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间</button>
-                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">自定义背景</button>
+                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
+                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">图片背景</button>
+                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="videoBackgroundSrc">视频背景</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearTheme">主题设置</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
                     <button class="btn btn-sm btn-danger mb-2 me-2" id="clearAllSettings">清除所有设置</button>
@@ -299,11 +301,12 @@ class SettingsModal extends Modal {
 
         // 为清除设置按钮添加事件监听
         const clearButtons = [
-            { id: "clearWallpaper", key: "wallpaperEnabled", label: "壁纸设置" },
+            //{ id: "clearWallpaper", key: "wallpaperEnabled", label: "壁纸设置" },
             { id: "clockFormat", key: "clockFormat", label: "小时制" },
             { id: "clearWidgetOrder", key: "widgetOrder", label: "组件顺序" },
             { id: "clearWorkTime", key: "workTimeWidgetConfig", label: "工作时间" },
             { id: "clearBackground", key: "selectedBackground", label: "自定义背景" },
+            { id: "videoBackgroundSrc", key: "videoBackgroundSrc", label: "自定义背景" },
             { id: "clearTheme", key: "theme", label: "主题设置" },
             { id: "clearSimpleMode", key: "eraserModState", label: "简洁模式" }
         ];
@@ -312,7 +315,10 @@ class SettingsModal extends Modal {
             const element = this.body.querySelector(`#${button.id}`);
             element.addEventListener("click", () => {
                 localStorage.removeItem(button.key);
-                window.ToastManager.success(`${button.label}已清除`, 5000);
+                window.ToastManager.success(`${button.label}已清除`, 1000);
+                setTimeout(() => {
+                window.location.reload();
+            }, 1500);
             });
         });
 
@@ -321,7 +327,7 @@ class SettingsModal extends Modal {
             clearButtons.forEach(button => {
                 localStorage.removeItem(button.key);
             });
-            window.ToastManager.warning("所有设置已清除", 2000);
+            window.ToastManager.warning("所有设置已清除", 1000);
             setTimeout(() => {
                 window.location.reload();
             }, 2000);
