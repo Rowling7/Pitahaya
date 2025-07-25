@@ -52,6 +52,12 @@ class ClockWidget extends BaseWidget {
       return;
     }
 
+    // 从localStorage读取时间格式设置，如果没有则使用默认值
+    const savedFormat = localStorage.getItem('clockFormat');
+    if (savedFormat !== null) {
+      this.options.use24HourFormat = savedFormat === 'true';
+    }
+
     // 渲染组件
     container.innerHTML = `
     <div id="clockWidget" class="widget-row2Col2">
@@ -69,7 +75,8 @@ class ClockWidget extends BaseWidget {
 
     document.getElementById("toggleFormat").addEventListener("click", () => {
       this.options.use24HourFormat = !this.options.use24HourFormat;
-      window.ToastManager.info(this.options.use24HourFormat ? "24小时制" : "12小时制",1000);
+      localStorage.setItem('clockFormat', this.options.use24HourFormat);
+      window.ToastManager.info(this.options.use24HourFormat ? "24小时制" : "12小时制", 1000);
       this.updateTime();
     });
 
@@ -204,7 +211,7 @@ class WorkTimeWidget extends BaseWidget {
 
     if (this.currentPage === "settings") {
       document.getElementById("saveSettings").addEventListener("click", () => {
-        window.ToastManager.success("保存成功",1000);
+        window.ToastManager.success("保存成功", 1000);
         this.saveSettings();
       });
     }
@@ -757,7 +764,7 @@ class HotPointWidget extends BaseWidget {
 
     // 绑定刷新事件
     document.getElementById('refreshBtn').addEventListener('click', () => {
-      window.ToastManager.success('数据已刷新',800);
+      window.ToastManager.success('数据已刷新', 800);
       this.fetchHotData();
     });
   }
@@ -1001,7 +1008,7 @@ class CalendarWidget extends BaseWidget {
     this.container.querySelector('.prev').addEventListener('click', () => this.changeMonth('last'));
     this.container.querySelector('.next').addEventListener('click', () => this.changeMonth('next'));
     this.container.querySelector('.calendar-today').addEventListener('click', () => {
-      window.ToastManager.info('已跳转到今天',1000);
+      window.ToastManager.info('已跳转到今天', 1000);
       this.date = new Date();
       this.renderCalendar();
 

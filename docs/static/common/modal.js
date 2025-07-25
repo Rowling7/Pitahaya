@@ -238,8 +238,9 @@ class SettingsModal extends Modal {
                     <h6>清除设置</h6>
                     <div class="settings-clear-buttons">
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>
+                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clockFormat">小时制</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
-                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间组件</button>
+                        <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">选中背景</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearTheme">主题设置</button>
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
@@ -271,8 +272,9 @@ class SettingsModal extends Modal {
                 <h6>清除设置</h6>
                 <div class="settings-clear-buttons">
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWallpaper">壁纸设置</button>
+                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clockFormat">小时制</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWidgetOrder">组件顺序</button>
-                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间组件</button>
+                    <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearWorkTime">工作时间</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearBackground">自定义背景</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearTheme">主题设置</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
@@ -298,8 +300,9 @@ class SettingsModal extends Modal {
         // 为清除设置按钮添加事件监听
         const clearButtons = [
             { id: "clearWallpaper", key: "wallpaperEnabled", label: "壁纸设置" },
+            { id: "clockFormat", key: "clockFormat", label: "小时制" },
             { id: "clearWidgetOrder", key: "widgetOrder", label: "组件顺序" },
-            { id: "clearWorkTime", key: "workTimeWidgetConfig", label: "工作时间组件" },
+            { id: "clearWorkTime", key: "workTimeWidgetConfig", label: "工作时间" },
             { id: "clearBackground", key: "selectedBackground", label: "自定义背景" },
             { id: "clearTheme", key: "theme", label: "主题设置" },
             { id: "clearSimpleMode", key: "eraserModState", label: "简洁模式" }
