@@ -724,7 +724,7 @@ class HotPointWidget extends BaseWidget {
         throw new Error('Unexpected API response format');
       }
     } catch (error) {
-      console.info('Fetch hot data failed:', error);
+      //console.info('Fetch hot data failed:', error);
       this.showErrorState();
     }
   }
@@ -866,7 +866,7 @@ class YiyanWidget extends BaseWidget {
         throw new Error('数据格式错误');
       }
     } catch (error) {
-      console.info('获取一言失败:', error);
+      //console.info('获取一言失败:', error);
       this.showErrorState();
     }
   }
