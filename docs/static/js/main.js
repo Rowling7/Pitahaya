@@ -1,13 +1,13 @@
 //根据访问的是localhost还是github决定图片加载gif还是icoico--开始
 window.onload = function () {
-    const imgElement = document.getElementById('gifORpng');
-    const isGitHub = window.location.hostname.includes('github.io');
+  const imgElement = document.getElementById('gifORpng');
+  const isGitHub = window.location.hostname.includes('github.io');
 
-    if (isGitHub) {
-        imgElement.src = 'static/ico/favicon.ico';
-    } else {
-        imgElement.src = 'static/ico/gif4head.gif';
-    }
+  if (isGitHub) {
+    imgElement.src = 'static/ico/favicon.ico';
+  } else {
+    imgElement.src = 'static/ico/gif4head.gif';
+  }
 };
 //根据访问的是localhost还是github决定图片加载gif还是icoico--结束
 
@@ -168,6 +168,26 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('bodyId').style.backgroundSize = 'cover';
     document.getElementById('bodyId').style.backgroundRepeat = 'no-repeat';
   }
+
+  // 应用保存的视频背景
+  const savedVideoBackground = localStorage.getItem("videoBackgroundSrc");
+  if (savedVideoBackground) {
+    const videoContainer = document.querySelector('.video-container video');
+    if (videoContainer) {
+      videoContainer.querySelector('source').src = savedVideoBackground;
+      videoContainer.load(); // 重新加载视频元素
+    }
+  }
+
+  // 如果同时保存了selectedBackground但没有视频背景，则清除视频背景
+  const selectedBg = localStorage.getItem("selectedBackground");
+  if (selectedBg && selectedBg.endsWith('.mp4')) {
+    const videoContainer = document.querySelector('.video-container video');
+    if (videoContainer) {
+      videoContainer.querySelector('source').src = selectedBg;
+      videoContainer.load();
+    }
+  }
 });
 
 
@@ -194,3 +214,8 @@ updateSearchStyles();
 // 监听暗黑模式切换
 document.getElementById('darkModeToggle').addEventListener('click', updateSearchStyles);
 // 搜索功能-----结束
+
+
+
+
+

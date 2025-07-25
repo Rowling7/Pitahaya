@@ -1,0 +1,9 @@
+/* 如果需要额外的视频样式，可以添加到此文件 */
+video.card-img-top {
+    background-color: #000;
+}
+
+/* 暗黑模式下的视频样式 */
+.dark-mode video.card-img-top {
+    background-color: #333;
+}

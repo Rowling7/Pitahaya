@@ -1,4 +1,4 @@
-let cardData = Array.from({ length: 72 }, (_, i) => {
+let cardData = Array.from({ length: 81 }, (_, i) => {
     const num = (i + 1).toString().padStart(3, '0');
     //const num = (99 - i).toString().padStart(3, '0');
     return {

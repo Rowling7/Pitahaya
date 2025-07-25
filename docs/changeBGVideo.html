@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态视频背景展示</title>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <script src="static/js/bootstrap.bundle.js" defer></script>
+    <link rel="stylesheet" href="static/css/changeBG.css">
+    <script src="static/js/changeBGVideo.js" defer></script>
+</head>
+
+<body>
+    <div class="container py-5">
+        <!-- 主题切换按钮 -->
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary mb-4">
+            <i class="bi bi-moon-stars">暗黑模式</i>
+        </button>
+        <button class="btn btn-sm btn-outline-secondary mb-4">
+            <a href="changeBG.html" target="_self">图片背景</a>
+        </button>
+        <button class="btn btn-sm btn-outline-secondary mb-4">
+            <a href="index.html" target="_self">返回</a>
+        </button>
+
+        <!-- 视频卡片容器 -->
+        <div class="row g-4" data-video-container></div>
+        <div class="d-flex justify-content-center my-4" data-pagination></div>
+    </div>
+</body>
+
+</html>
