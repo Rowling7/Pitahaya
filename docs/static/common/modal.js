@@ -386,6 +386,7 @@ class SettingsModal extends Modal {
                 } catch (error) {
                     console.error("导出收藏夹失败:", error);
                     window.ToastManager.error("导出失败: " + error.message, 2000);
+                    console.log(error);
                 }
             });
         }
