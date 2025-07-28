@@ -121,7 +121,7 @@
             },
             {
                 "name": "9dgames",
-                "target": "http://www.9dmsgame.net/",
+                "target": "http://www.9dmgamemod.com/",
                 "bgImage": "static/ico/9dgames.png"
             },
             {
@@ -482,6 +482,11 @@
                 "name": "iconKit",
                 "target": "https://iconkit.cn/",
                 "bgImage": "static/ico/iconkit.png"
+            },
+            {
+                "name": "appicons",
+                "target": "https://appicons.co/",
+                "bgImage": "static/ico/appicons.png"
             },
             {
                 "name": "阿里图标库",
