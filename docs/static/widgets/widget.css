@@ -840,6 +840,49 @@
     transform: scale(0.98);
 }
 
+/* 添加心形图标样式 */
+.bi-heart {
+    color: red !important;
+    margin-right: auto;
+    /* 靠左对齐 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 心形填充图标样式 */
+.bi-heart-fill {
+    color: red !important;
+    margin-right: auto;
+    /* 靠左对齐 */
+    transition: all 0.3s ease;
+}
+
+/* 添加心动动画 */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.3);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+.heartbeat-animation {
+    animation: heartbeat 0.8s ease-in-out;
+}
 
 
 

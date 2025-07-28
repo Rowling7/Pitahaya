@@ -277,6 +277,10 @@ class SettingsModal extends Modal {
                         <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
                         <button class="btn btn-sm btn-danger mb-2 me-2" id="clearAllSettings">清除所有设置</button>
                     </div>
+                    <h6>数据导出</h6>
+                    <div class="settings-export-buttons">
+                        <button class="btn btn-sm btn-outline-primary mb-2 me-2" id="downloadFavorites">导出收藏夹</button>
+                    </div>
                 </div>
             `,
             buttons: [
@@ -311,6 +315,10 @@ class SettingsModal extends Modal {
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearTheme">主题设置</button>
                     <button class="btn btn-sm btn-outline-danger mb-2 me-2" id="clearSimpleMode">简洁模式</button>
                     <button class="btn btn-sm btn-danger mb-2 me-2" id="clearAllSettings">清除所有设置</button>
+                </div>
+                <h6>数据导出</h6>
+                <div class="settings-export-buttons">
+                    <button class="btn btn-sm btn-outline-primary mb-2 me-2" id="downloadFavorites">导出收藏夹</button>
                 </div>
             </div>
         `);
@@ -362,6 +370,107 @@ class SettingsModal extends Modal {
                 window.location.reload();
             }, 2000);
         });
+
+        // 替换原有的下载按钮事件监听器代码
+        const downloadFavoritesBtn = this.body.querySelector("#downloadFavorites");
+        if (downloadFavoritesBtn) {
+            downloadFavoritesBtn.addEventListener("click", async () => {
+                try {
+                    // 从 IndexedDB 获取收藏夹数据
+                    const favoritesData = await this.getFavoritesFromIndexedDB();
+
+                    // 创建并下载 JSON 文件
+                    this.downloadAsJson(favoritesData, 'favorites.json');
+
+                    window.ToastManager.success("收藏夹数据已导出", 2000);
+                } catch (error) {
+                    console.error("导出收藏夹失败:", error);
+                    window.ToastManager.error("导出失败: " + error.message, 2000);
+                }
+            });
+        }
+
+    }
+    //  getFavoritesFromIndexedDB 方法
+    async getFavoritesFromIndexedDB() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open("YiyanDatabase");
+
+            request.onsuccess = function (event) {
+                const db = event.target.result;
+
+                // 检查是否存在 favorites 对象存储
+                if (!db.objectStoreNames.contains("favorites")) {
+                    reject(new Error("未找到收藏夹数据"));
+                    return;
+                }
+
+                const transaction = db.transaction(["favorites"], "readonly");
+                const store = transaction.objectStore("favorites");
+                const getAllRequest = store.getAll();
+
+                getAllRequest.onsuccess = function (event) {
+                    resolve(event.target.result);
+                };
+
+                getAllRequest.onerror = function (event) {
+                    reject(new Error("无法获取收藏夹数据"));
+                };
+            };
+
+            // 处理数据库升级情况 - 直接访问已打开的数据库
+            request.onupgradeneeded = function (event) {
+                const db = event.target.result;
+                // 如果在升级过程中发现 favorites 存储，尝试读取数据
+                if (db.objectStoreNames.contains("favorites")) {
+                    try {
+                        const transaction = db.transaction(["favorites"], "readonly");
+                        const store = transaction.objectStore("favorites");
+                        const getAllRequest = store.getAll();
+
+                        getAllRequest.onsuccess = function (event) {
+                            resolve(event.target.result);
+                        };
+
+                        getAllRequest.onerror = function (event) {
+                            reject(new Error("无法获取收藏夹数据"));
+                        };
+                    } catch (e) {
+                        reject(new Error("数据库正在升级，请稍后重试"));
+                    }
+                } else {
+                    reject(new Error("未找到收藏夹数据"));
+                }
+            };
+
+            request.onerror = function (event) {
+                reject(new Error("无法连接到数据库: " + event.target.error));
+            };
+
+            // 添加 onblocked 事件处理
+            request.onblocked = function (event) {
+                reject(new Error("数据库被阻塞，请关闭其他标签页后重试"));
+            };
+        });
+    }
+
+    // 下载为 JSON 文件
+    downloadAsJson(data, filename) {
+        const jsonStr = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+
+        // 清理
+        setTimeout(() => {
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }, 100);
     }
 }
 

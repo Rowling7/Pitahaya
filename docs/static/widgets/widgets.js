@@ -813,8 +813,19 @@ class YiyanWidget extends BaseWidget {
     // 合并用户配置
     this.options = { ...this.defaultOptions, ...options };
 
+    // 初始化数据库
+    this.initDB();
+    
     // 初始化
     this.init();
+  }
+
+  // 初始化 IndexedDB 数据库
+  initDB() {
+    this.db = new Dexie('YiyanDatabase');
+    this.db.version(1).stores({
+      favorites: '++id, timestamp, content'
+    });
   }
 
   async init() {
@@ -827,18 +838,52 @@ class YiyanWidget extends BaseWidget {
 
   render() {
     this.container.innerHTML = `
-      <div id="yiyanWidget">
-        <p id="yiyanText">
-          <a href="#" class="yiyan-text">生气的本质就是在和自己的预期较劲</a>
-        </p>
-        <button class="type-switcher" id="typeSwitcher">切换内容源</button>
-      </div>
-    `;
+    <div id="yiyanWidget">
+      <i class="bi bi-heart heart-icon" id="heartIcon"></i>
+      <p id="yiyanText">
+        <a href="#" class="yiyan-text">生气的本质就是在和自己的预期较劲</a>
+      </p>
+      <button class="type-switcher" id="typeSwitcher">切换内容源</button>
+    </div>
+  `;
 
     // 绑定点击刷新事件
     document.getElementById('yiyanText').addEventListener('click', (e) => {
       e.preventDefault();
       this.fetchYiyan();
+    });
+
+    // 心形图标点击事件
+    const heartIcon = document.getElementById('heartIcon');
+    const yiyanTextEl = document.getElementById('yiyanText');
+    
+    // 保存 this 引用以在事件处理程序中使用
+    const self = this;
+
+    heartIcon.addEventListener('click', async function () {
+      this.classList.toggle('filled');
+      if (this.classList.contains('bi-heart')) {
+        this.classList.remove('bi-heart');
+        this.classList.add('bi-heart-fill');
+      } else {
+        this.classList.remove('bi-heart-fill');
+        this.classList.add('bi-heart');
+      }
+
+      // 当图标变为填充状态时，将一言保存到数据库
+      if (this.classList.contains('bi-heart-fill')) {
+        const content = yiyanTextEl.textContent;
+        try {
+          await self.db.favorites.add({
+            timestamp: new Date().getTime(),
+            content: content
+          });
+          window.ToastManager.success('已收藏到心语库', 1000);
+        } catch (error) {
+          console.error('保存收藏失败:', error);
+          window.ToastManager.error('收藏失败', 1000);
+        }
+      }
     });
 
     // 切换类型按钮
@@ -885,6 +930,7 @@ class YiyanWidget extends BaseWidget {
     }
   }
 }
+
 
 // 日历组件
 class CalendarWidget extends BaseWidget {
