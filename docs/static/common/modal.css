@@ -50,10 +50,49 @@
     align-items: center;
 }
 
+.modal-header-actions {
+    display: flex;
+    gap: 5px;
+}
+
 .modal-title {
     margin: 0;
     font-size: 1.25rem;
     color: var(--bs-heading-color);
+}
+
+.modal-fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.modal-fullscreen .modal-body {
+    flex: 1 !important;
+    max-height: none !important;
+    overflow-y: auto;
+}
+
+/* 全屏按钮样式 */
+.modal-fullscreen-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-secondary-color);
+    transition: color 0.2s;
+}
+
+.modal-fullscreen-btn:hover {
+    color: var(--bs-primary);
 }
 
 .modal-close-btn {

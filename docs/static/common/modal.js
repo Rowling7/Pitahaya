@@ -24,7 +24,10 @@ class Modal {
         this.modal.innerHTML = `
             <div class="modal-header">
                 <h5 class="modal-title">${this.options.title}</h5>
-                <button type="button" class="modal-close-btn" aria-label="Close">&times;</button>
+                <div class="modal-header-actions">
+                    <button type="button" class="modal-fullscreen-btn" aria-label="Fullscreen">&#x26F6;</button>
+                    <button type="button" class="modal-close-btn" aria-label="Close">&times;</button>
+                </div>
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer"></div>
@@ -59,6 +62,12 @@ class Modal {
             .querySelector(".modal-close-btn")
             .addEventListener("click", () => this.close());
 
+        // 全屏按钮事件
+        const fullscreenBtn = this.modal.querySelector(".modal-fullscreen-btn");
+        if (fullscreenBtn) {
+            fullscreenBtn.addEventListener("click", () => this.toggleFullscreen());
+        }
+
         // 点击遮罩层关闭
         this.overlay.addEventListener("click", (e) => {
             if (e.target === this.overlay) {
@@ -79,6 +88,27 @@ class Modal {
         }
     }
 
+    // 添加全屏切换方法
+    toggleFullscreen() {
+        const isFullscreen = this.modal.classList.contains('modal-fullscreen');
+        if (isFullscreen) {
+            this.modal.classList.remove('modal-fullscreen');
+            // 更新按钮图标为进入全屏
+            const fullscreenBtn = this.modal.querySelector(".modal-fullscreen-btn");
+            if (fullscreenBtn) {
+                fullscreenBtn.innerHTML = '&#x26F6;';
+                fullscreenBtn.setAttribute('aria-label', 'Fullscreen');
+            }
+        } else {
+            this.modal.classList.add('modal-fullscreen');
+            // 更新按钮图标为退出全屏
+            const fullscreenBtn = this.modal.querySelector(".modal-fullscreen-btn");
+            if (fullscreenBtn) {
+                fullscreenBtn.innerHTML = '&#x1F5D6;';
+                fullscreenBtn.setAttribute('aria-label', 'Exit Fullscreen');
+            }
+        }
+    }
     close() {
         this.overlay.classList.remove("active");
         document.body.style.overflow = "";
@@ -317,8 +347,8 @@ class SettingsModal extends Modal {
                 localStorage.removeItem(button.key);
                 window.ToastManager.success(`${button.label}已清除`, 1000);
                 setTimeout(() => {
-                window.location.reload();
-            }, 1500);
+                    window.location.reload();
+                }, 1500);
             });
         });
 
