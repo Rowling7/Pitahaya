@@ -356,7 +356,7 @@ class SettingsModal extends Modal {
                 window.ToastManager.success(`${button.label}已清除`, 1000);
                 setTimeout(() => {
                     window.location.reload();
-                }, 1500);
+                }, 1200);
             });
         });
 
@@ -368,7 +368,7 @@ class SettingsModal extends Modal {
             window.ToastManager.warning("所有设置已清除", 1000);
             setTimeout(() => {
                 window.location.reload();
-            }, 2000);
+            }, 1100);
         });
 
         // 替换原有的下载按钮事件监听器代码

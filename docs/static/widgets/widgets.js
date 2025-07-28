@@ -815,7 +815,7 @@ class YiyanWidget extends BaseWidget {
 
     // 初始化数据库
     this.initDB();
-    
+
     // 初始化
     this.init();
   }
@@ -847,41 +847,60 @@ class YiyanWidget extends BaseWidget {
     </div>
   `;
 
+    // 心形图标点击事件
+    const heartIcon = document.getElementById('heartIcon');
+    const yiyanTextEl = document.getElementById('yiyanText');
+
+    // 保存 this 引用以在事件处理程序中使用
+    const self = this;
+
     // 绑定点击刷新事件
     document.getElementById('yiyanText').addEventListener('click', (e) => {
       e.preventDefault();
       this.fetchYiyan();
+      document.getElementById('heartIcon').classList.remove('bi-heart-fill');
+      document.getElementById('heartIcon').classList.add('bi-heart');
+      console.log('点击了');
     });
 
-    // 心形图标点击事件
-    const heartIcon = document.getElementById('heartIcon');
-    const yiyanTextEl = document.getElementById('yiyanText');
-    
-    // 保存 this 引用以在事件处理程序中使用
-    const self = this;
-
+    // 修改 YiyanWidget 类中的 heartIcon 点击事件处理部分
     heartIcon.addEventListener('click', async function () {
       this.classList.toggle('filled');
       if (this.classList.contains('bi-heart')) {
         this.classList.remove('bi-heart');
         this.classList.add('bi-heart-fill');
+
+        // 当图标变为填充状态时，将一言保存到数据库
+        if (this.classList.contains('bi-heart-fill')) {
+          const content = yiyanTextEl.textContent;
+          try {
+            await self.db.favorites.add({
+              timestamp: new Date().getTime(),
+              content: content
+            });
+            window.ToastManager.success('已收藏到心语库', 1000);
+          } catch (error) {
+            console.error('保存收藏失败:', error);
+            window.ToastManager.error('收藏失败', 1000);
+          }
+        }
       } else {
         this.classList.remove('bi-heart-fill');
         this.classList.add('bi-heart');
-      }
 
-      // 当图标变为填充状态时，将一言保存到数据库
-      if (this.classList.contains('bi-heart-fill')) {
+        // 当图标从填充状态变为普通状态时，从数据库中删除该一言
         const content = yiyanTextEl.textContent;
         try {
-          await self.db.favorites.add({
-            timestamp: new Date().getTime(),
-            content: content
-          });
-          window.ToastManager.success('已收藏到心语库', 1000);
+          // 查找数据库中匹配的内容
+          const item = await self.db.favorites.where('content').equals(content).first();
+          if (item) {
+            // 如果找到了匹配的记录，则删除它
+            await self.db.favorites.delete(item.id);
+            window.ToastManager.info('已取消收藏', 1000);
+          }
         } catch (error) {
-          console.error('保存收藏失败:', error);
-          window.ToastManager.error('收藏失败', 1000);
+          console.error('删除收藏失败:', error);
+          window.ToastManager.error('取消收藏失败', 1000);
         }
       }
     });
